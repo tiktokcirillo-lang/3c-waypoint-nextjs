@@ -1,0 +1,120 @@
+{
+  "Metadata": {
+    "title": "3C Waypoint | Infraestrutura de Marketing para Despachantes Aduaneiros",
+    "description": "Infraestrutura de marketing enterprise para despachantes aduaneiros, agentes de carga, NVOCCs e empresas de compliance de comércio exterior nos EUA."
+  },
+  "Locale": {
+    "label": "Idioma",
+    "en": "Inglês",
+    "pt-br": "Português",
+    "es": "Espanhol",
+    "zh": "Chinês"
+  },
+  "Navbar": {
+    "homeAria": "Página inicial da 3C Waypoint",
+    "cta": "Solicitar diagnóstico",
+    "items": [
+      { "label": "Serviços", "href": "#services" },
+      { "label": "Autoridade", "href": "#authority" },
+      { "label": "Inteligência Comercial", "href": "#trade-intelligence" },
+      { "label": "Contato", "href": "#contact" }
+    ]
+  },
+  "Hero": {
+    "eyebrow": "Infraestrutura de Marketing para Despachantes Aduaneiros e Freight Forwarders",
+    "headline": {
+      "line1": "Você conhece seus",
+      "line2": "códigos HTSUS.",
+      "line3": "Seu próximo cliente",
+      "line4": "não conhece seu nome."
+    },
+    "copy": "Criado para despachantes aduaneiros, freight forwarders, NVOCCs e empresas de compliance comercial que atuam em ambientes regulados de comércio dos EUA.",
+    "primaryCta": "Solicitar diagnóstico enterprise",
+    "secondaryCta": "Explorar serviços da plataforma",
+    "stats": [
+      { "value": "HTSUS", "label": "Autoridade em busca" },
+      { "value": "CBP", "label": "Linguagem de compliance" },
+      { "value": "EUA", "label": "Foco no mercado de brokers" }
+    ],
+    "dashboardAria": "Superfície animada de comando de inteligência comercial",
+    "dashboard": {
+      "title": "TRADE AUTHORITY ENGINE",
+      "signalMap": "MAPA DE SINAIS AO VIVO",
+      "signals": [
+        "Cluster de autoridade HTSUS",
+        "Corredor de intenção do importador",
+        "Velocidade de tópicos de compliance"
+      ],
+      "marketLabel": "Mercado",
+      "marketValue": "Importadores dos EUA",
+      "partnerLabel": "Camada parceira",
+      "partnerValue": "Strategic Trade Intelligence Partner"
+    }
+  },
+  "Services": {
+    "eyebrow": "Serviços",
+    "title": "Uma plataforma técnica de crescimento para operadores de comércio regulado.",
+    "copy": "A 3C Waypoint transforma expertise aduaneira complexa em autoridade comercial visível e durável em busca, conteúdo, presença executiva e pontos de aquisição de importadores.",
+    "items": [
+      {
+        "title": "Infraestrutura de autoridade em busca",
+        "description": "Programas técnicos de SEO para HTSUS, UFLPA, ISF, AD/CVD, drawback, FTZ e páginas de aquisição específicas para brokers.",
+        "signal": "01"
+      },
+      {
+        "title": "Posicionamento de demanda de importadores",
+        "description": "Narrativas de mercado, landing pages e sinais locais para importadores que avaliam despachantes aduaneiros e parceiros de forwarding.",
+        "signal": "02"
+      },
+      {
+        "title": "Sistemas de credibilidade executiva",
+        "description": "LinkedIn, liderança técnica e operações de conteúdo que tornam a expertise regulatória visível antes do início da compra.",
+        "signal": "03"
+      },
+      {
+        "title": "Diagnósticos de conversão",
+        "description": "Auditorias de site, SERP e mensagem que identificam onde a intenção qualificada de importadores está escapando do pipeline comercial.",
+        "signal": "04"
+      }
+    ]
+  },
+  "Authority": {
+    "eyebrow": "Autoridade Técnica",
+    "title": "Posicionamento que respeita a complexidade do comércio dos EUA.",
+    "copy": "Compradores de serviços de customs brokerage não respondem a linguagem genérica de marketing. Eles avaliam precisão, leitura de risco, competência jurisdicional e clareza para explicar movimentação regulada.",
+    "points": [
+      "Criado para despachantes aduaneiros, freight forwarders, NVOCCs e empresas de compliance comercial dos EUA.",
+      "Estruturado em torno do comportamento de busca regulada, perguntas de risco dos importadores e avaliação orientada por compliance.",
+      "Projetado para sustentar páginas de autoridade de longo prazo, bibliotecas de conteúdo técnico e posicionamento pronto para vendas.",
+      "Opera como infraestrutura estratégica de marketing, não como campanha de agência generalista."
+    ],
+    "metrics": [
+      { "value": "7", "label": "Eixos prioritários de autoridade SEO" },
+      { "value": "4", "label": "Segmentos de operadores de comércio regulado" },
+      { "value": "1", "label": "Plataforma enterprise especializada" }
+    ]
+  },
+  "TradeIntelligence": {
+    "eyebrow": "Inteligência Comercial",
+    "title": "Estratégia informada por como importadores pesquisam, comparam e reduzem risco.",
+    "copy": "A 3C Waypoint conecta tópicos técnicos de comércio à descoberta comercial: as perguntas que importadores pesquisam, as páginas de compliance em que confiam e os sinais de prova necessários antes do contato.",
+    "panelTitle": "Camada de inteligência",
+    "partner": "Strategic Trade Intelligence Partner",
+    "signals": [
+      "Mapeamento de commodities e tópicos de compliance",
+      "Classificação de intenção de busca de importadores",
+      "Arquitetura de conteúdo sobre regulação comercial dos EUA",
+      "Posicionamento de mercado para brokers e forwarders"
+    ]
+  },
+  "CTA": {
+    "eyebrow": "Diagnóstico Enterprise",
+    "title": "Encontre as lacunas de autoridade entre sua expertise comercial e seu próximo importador.",
+    "copy": "Solicite uma revisão focada em visibilidade de busca, posicionamento em temas regulados, arquitetura de páginas e sinais de credibilidade para compradores.",
+    "button": "Agendar conversa estratégica"
+  },
+  "Footer": {
+    "copy": "Infraestrutura premium de marketing B2B para despachantes aduaneiros, freight forwarders, NVOCCs e empresas de compliance comercial dos EUA.",
+    "partner": "Strategic Trade Intelligence Partner"
+  }
+}

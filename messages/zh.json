@@ -1,0 +1,120 @@
+{
+  "Metadata": {
+    "title": "3C Waypoint | 面向报关行的营销基础设施",
+    "description": "面向美国报关行、货运代理、NVOCC 和贸易合规公司的企业级营销基础设施。"
+  },
+  "Locale": {
+    "label": "语言",
+    "en": "英语",
+    "pt-br": "葡萄牙语",
+    "es": "西班牙语",
+    "zh": "简体中文"
+  },
+  "Navbar": {
+    "homeAria": "3C Waypoint 首页",
+    "cta": "申请诊断",
+    "items": [
+      { "label": "服务", "href": "#services" },
+      { "label": "权威", "href": "#authority" },
+      { "label": "贸易情报", "href": "#trade-intelligence" },
+      { "label": "联系", "href": "#contact" }
+    ]
+  },
+  "Hero": {
+    "eyebrow": "面向报关行与货运代理的营销基础设施",
+    "headline": {
+      "line1": "您熟悉",
+      "line2": "HTSUS 编码。",
+      "line3": "但您的下一个客户",
+      "line4": "还不知道您的名字。"
+    },
+    "copy": "专为在美国受监管贸易环境中运营的报关行、货运代理、NVOCC 和贸易合规公司而构建。",
+    "primaryCta": "申请企业级诊断",
+    "secondaryCta": "探索平台服务",
+    "stats": [
+      { "value": "HTSUS", "label": "搜索权威" },
+      { "value": "CBP", "label": "合规语言" },
+      { "value": "美国", "label": "报关市场聚焦" }
+    ],
+    "dashboardAria": "动态贸易情报指挥界面",
+    "dashboard": {
+      "title": "TRADE AUTHORITY ENGINE",
+      "signalMap": "实时信号地图",
+      "signals": [
+        "HTSUS 权威主题群",
+        "进口商意图通道",
+        "合规主题速度"
+      ],
+      "marketLabel": "市场",
+      "marketValue": "美国进口商",
+      "partnerLabel": "合作层",
+      "partnerValue": "Strategic Trade Intelligence Partner"
+    }
+  },
+  "Services": {
+    "eyebrow": "服务",
+    "title": "为受监管贸易运营商打造的技术型增长平台。",
+    "copy": "3C Waypoint 将复杂的海关专业知识转化为可见、持久的商业权威，覆盖搜索、内容、高管形象与进口商获客触点。",
+    "items": [
+      {
+        "title": "搜索权威基础设施",
+        "description": "面向 HTSUS、UFLPA、ISF、AD/CVD、drawback、FTZ 以及报关行获客页面的技术 SEO 项目。",
+        "signal": "01"
+      },
+      {
+        "title": "进口商需求定位",
+        "description": "为评估报关行和货运代理伙伴的进口商构建市场叙事、落地页与本地信号。",
+        "signal": "02"
+      },
+      {
+        "title": "高管可信度系统",
+        "description": "通过 LinkedIn、专业观点与技术内容运营，让监管专业能力在采购开始前就被看见。",
+        "signal": "03"
+      },
+      {
+        "title": "转化诊断",
+        "description": "审计网站、搜索结果页面和信息表达，识别合格进口商意图在商业流程中流失的位置。",
+        "signal": "04"
+      }
+    ]
+  },
+  "Authority": {
+    "eyebrow": "技术权威",
+    "title": "尊重美国贸易复杂性的定位体系。",
+    "copy": "报关服务买家不会被通用营销语言打动。他们评估的是精确性、风险理解、司法辖区能力，以及清晰解释受监管货物流动的能力。",
+    "points": [
+      "为美国报关行、货运代理、NVOCC 和贸易合规公司而构建。",
+      "围绕受监管搜索行为、进口商风险问题和合规驱动的买方评估进行设计。",
+      "支持长期权威页面、技术内容库和可用于销售的定位体系。",
+      "作为战略营销基础设施运行，而不是通用代理商活动。"
+    ],
+    "metrics": [
+      { "value": "7", "label": "优先 SEO 权威赛道" },
+      { "value": "4", "label": "受监管贸易运营商细分" },
+      { "value": "1", "label": "专业企业级平台" }
+    ]
+  },
+  "TradeIntelligence": {
+    "eyebrow": "贸易情报",
+    "title": "基于进口商如何搜索、比较和降低风险的战略。",
+    "copy": "3C Waypoint 将技术贸易主题连接到商业发现：进口商搜索的问题、他们信任的合规页面，以及他们在联系前需要看到的证明信号。",
+    "panelTitle": "情报层",
+    "partner": "Strategic Trade Intelligence Partner",
+    "signals": [
+      "商品与合规主题映射",
+      "进口商搜索意图分类",
+      "美国贸易法规内容架构",
+      "报关行与货运代理市场定位"
+    ]
+  },
+  "CTA": {
+    "eyebrow": "企业级诊断",
+    "title": "找出您的贸易专业能力与下一个进口商之间的权威缺口。",
+    "copy": "申请一次聚焦搜索可见性、受监管主题定位、页面架构和买方可信度信号的审查。",
+    "button": "预约战略沟通"
+  },
+  "Footer": {
+    "copy": "面向美国报关行、货运代理、NVOCC 和贸易合规公司的高端 B2B 营销基础设施。",
+    "partner": "Strategic Trade Intelligence Partner"
+  }
+}
