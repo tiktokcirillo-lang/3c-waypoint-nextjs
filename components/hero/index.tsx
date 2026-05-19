@@ -103,7 +103,7 @@ export default function Hero() {
         className="
           absolute
           top-1/2 -translate-y-1/2
-          right-[-6%]
+          right-[-14%]
           w-[62vw] h-[62vw]
           max-w-[860px] max-h-[860px]
           pointer-events-none

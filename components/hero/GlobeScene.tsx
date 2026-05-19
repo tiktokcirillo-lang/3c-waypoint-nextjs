@@ -90,14 +90,15 @@ function Globe() {
   // Latitude / longitude grid lines — give the globe readable structure
   const gridLines = useMemo(() => {
     const lines: THREE.Vector3[][] = []
-    // Latitude rings: -60 -30 0 +30 +60
+    // Latitude rings: skip equator (0°) to avoid X artifact — use -60 -30 +30 +60
     for (let lat = -60; lat <= 60; lat += 30) {
+      if (lat === 0) continue
       const pts: THREE.Vector3[] = []
       for (let lng = -180; lng <= 181; lng += 4) pts.push(toVec3(lat, lng, 1.003))
       lines.push(pts)
     }
-    // Meridians: every 30°
-    for (let lng = -180; lng < 180; lng += 30) {
+    // Meridians: every 40° to reduce visual noise at intersection
+    for (let lng = -180; lng < 180; lng += 40) {
       const pts: THREE.Vector3[] = []
       for (let lat = -85; lat <= 85; lat += 4) pts.push(toVec3(lat, lng, 1.003))
       lines.push(pts)
