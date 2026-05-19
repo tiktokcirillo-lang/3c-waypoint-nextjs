@@ -1,17 +1,17 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 
 // ─── Animation variants ───────────────────────────────────────────────────────
 
-/** Mask reveal — each line slides up from behind a clip */
 const REVEAL = {
   hidden:  { y: '102%' },
   visible: (i: number) => ({
     y: '0%',
     transition: {
       duration: 1.0,
-      ease: [0.16, 1, 0.3, 1],  // expo-out easing
+      ease: [0.16, 1, 0.3, 1],
       delay: 0.1 + i * 0.11,
     },
   }),
@@ -59,6 +59,8 @@ function MaskedLine({
 // ─── HeroText ─────────────────────────────────────────────────────────────────
 
 export default function HeroText() {
+  const t = useTranslations('Hero')
+
   return (
     <div className="relative z-10 w-full h-full flex items-center">
       <div className="px-8 md:px-16 lg:px-20 xl:px-24 w-full max-w-[1440px] mx-auto">
@@ -72,38 +74,28 @@ export default function HeroText() {
           className="flex items-center gap-3 mb-7"
         >
           <span className="block w-7 h-px bg-[#7ECECA] opacity-80" />
-          <span
-            className="font-mono text-[10px] tracking-[0.38em] uppercase text-[#7ECECA] opacity-70"
-          >
-            Trade Intelligence Platform
+          <span className="font-mono text-[10px] tracking-[0.38em] uppercase text-[#7ECECA] opacity-70">
+            {t('eyebrow')}
           </span>
         </motion.div>
 
-        {/* ── Headline — Resn editorial block ── */}
-        {/*
-          Design intent:
-          - Lines 1 & 3 are white (anchor)
-          - Line 2 is Mint (#7ECECA) — the "punch" keyword
-          - Line 4 dimmed to 35% — tension / the problem
-          - Font size fluid: clamp(3.8rem, 9.5vw, 10.5rem)
-          - Barlow Condensed Black, ultra-tight leading
-        */}
+        {/* ── Headline ── */}
         <div className="flex flex-col gap-[0.06em] mb-10 md:mb-14">
           <MaskedLine index={0} className="font-['Barlow_Condensed'] text-[clamp(3.6rem,9vw,10rem)] font-black uppercase tracking-[-0.025em] text-white">
-            You know your
+            {t('headline.line1')}
           </MaskedLine>
           <MaskedLine index={1} className="font-['Barlow_Condensed'] text-[clamp(3.6rem,9vw,10rem)] font-black uppercase tracking-[-0.025em] text-[#7ECECA]">
-            HTSUS codes.
+            {t('headline.line2')}
           </MaskedLine>
           <MaskedLine index={2} className="font-['Barlow_Condensed'] text-[clamp(3.6rem,9vw,10rem)] font-black uppercase tracking-[-0.025em] text-white">
-            Your next client
+            {t('headline.line3')}
           </MaskedLine>
           <MaskedLine index={3} className="font-['Barlow_Condensed'] text-[clamp(3.6rem,9vw,10rem)] font-black uppercase tracking-[-0.025em] text-white/30">
-            doesn't know your name.
+            {t('headline.line4')}
           </MaskedLine>
         </div>
 
-        {/* ── Body + CTA row ── */}
+        {/* ── Body + CTA ── */}
         <motion.div
           custom={1}
           variants={FADE_UP}
@@ -111,15 +103,11 @@ export default function HeroText() {
           animate="visible"
           className="flex flex-col sm:flex-row items-start sm:items-center gap-8"
         >
-          {/* Body copy */}
           <p className="font-['Inter'] text-sm leading-[1.7] text-white/45 max-w-[320px]">
-            Marketing infrastructure for customs brokers, freight forwarders,
-            and trade compliance firms operating in the U.S. market.
+            {t('copy')}
           </p>
 
-          {/* CTAs */}
           <div className="flex items-center gap-4">
-            {/* Primary */}
             <a
               href="#contact"
               className="
@@ -131,20 +119,14 @@ export default function HeroText() {
                 transition-all duration-300 ease-out
               "
             >
-              Request Diagnostic
-              {/* Animated arrow */}
-              <svg
-                className="w-4 h-px mt-px group-hover:translate-x-1 transition-transform duration-300"
-                viewBox="0 0 16 1"
-                fill="none"
-              >
+              {t('primaryCta')}
+              <svg className="w-4 h-px mt-px group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 16 1" fill="none">
                 <line x1="0" y1="0.5" x2="12" y2="0.5" stroke="#A8E6E4" strokeWidth="1" />
                 <line x1="10" y1="-2" x2="14" y2="0.5" stroke="#A8E6E4" strokeWidth="1" />
-                <line x1="10" y1="3" x2="14" y2="0.5" stroke="#A8E6E4" strokeWidth="1" />
+                <line x1="10" y1="3"  x2="14" y2="0.5" stroke="#A8E6E4" strokeWidth="1" />
               </svg>
             </a>
 
-            {/* Ghost secondary */}
             <a
               href="#services"
               className="
@@ -154,7 +136,7 @@ export default function HeroText() {
                 border-b border-transparent hover:border-white/30
               "
             >
-              Platform services
+              {t('secondaryCta')}
             </a>
           </div>
         </motion.div>
@@ -167,28 +149,16 @@ export default function HeroText() {
           className="absolute bottom-10 left-8 md:left-16 lg:left-20 xl:left-24 flex items-center gap-3"
           aria-hidden
         >
-          {/* Animated line */}
           <div className="relative w-px h-14 bg-white/10 overflow-hidden">
             <motion.div
               className="absolute left-0 w-full bg-[#7ECECA]"
-              animate={{
-                top:    ['0%',   '100%'],
-                height: ['30%',  '30%'],
-              }}
+              animate={{ top: ['0%', '100%'], height: ['30%', '30%'] }}
               transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut', repeatDelay: 0.4 }}
             />
           </div>
-          <span
-            className="
-              font-mono text-[9px] tracking-[0.45em] uppercase text-white/25
-              rotate-90 origin-left translate-x-7 translate-y-3 whitespace-nowrap
-            "
-          >
-            Scroll to explore
-          </span>
         </motion.div>
 
-        {/* ── Stat pills — Active Theory flavor ── */}
+        {/* ── Stats — bottom right ── */}
         <motion.div
           custom={2}
           variants={FADE_UP}
@@ -196,17 +166,13 @@ export default function HeroText() {
           animate="visible"
           className="absolute bottom-10 right-8 md:right-16 lg:right-20 xl:right-24 hidden lg:flex flex-col gap-2 items-end"
         >
-          {[
-            ['7',   'Authority SEO lanes'],
-            ['4',   'Operator segments'],
-            ['U.S.','Market focus'],
-          ].map(([val, label]) => (
-            <div key={label} className="flex items-baseline gap-2">
+          {(t.raw('stats') as { value: string; label: string }[]).map((s) => (
+            <div key={s.value} className="flex items-baseline gap-2">
               <span className="font-['Barlow_Condensed'] text-2xl font-bold text-[#7ECECA] leading-none">
-                {val}
+                {s.value}
               </span>
               <span className="font-['Inter'] text-[10px] tracking-[0.15em] uppercase text-white/30">
-                {label}
+                {s.label}
               </span>
             </div>
           ))}
