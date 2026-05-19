@@ -3,125 +3,237 @@
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 
-type Stat = {
-  value: string;
-  label: string;
+type Stat = { value: string; label: string };
+
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.15 } },
 };
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+};
+
+function TradeNetworkSVG() {
+  return (
+    <motion.svg
+      viewBox="0 0 480 480"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-full max-w-[520px]"
+      aria-hidden="true"
+      initial={{ opacity: 0, scale: 0.92 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1.4, delay: 0.5, ease: 'easeOut' }}
+    >
+      <defs>
+        <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#7ECECA" stopOpacity="0.18" />
+          <stop offset="100%" stopColor="#7ECECA" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+
+      {/* Concentric rings suggesting a globe */}
+      <circle cx="240" cy="240" r="210" stroke="#7ECECA" strokeOpacity="0.04" strokeWidth="1" />
+      <circle cx="240" cy="240" r="160" stroke="#7ECECA" strokeOpacity="0.07" strokeWidth="1" />
+      <circle cx="240" cy="240" r="100" stroke="#7ECECA" strokeOpacity="0.1" strokeWidth="1" />
+      <circle cx="240" cy="240" r="48" stroke="#7ECECA" strokeOpacity="0.14" strokeWidth="1" />
+
+      {/* Globe latitude / longitude ellipses */}
+      <ellipse cx="240" cy="240" rx="160" ry="46" stroke="#7ECECA" strokeOpacity="0.06" strokeWidth="1" fill="none" />
+      <ellipse cx="240" cy="240" rx="46" ry="160" stroke="#7ECECA" strokeOpacity="0.06" strokeWidth="1" fill="none" />
+
+      {/* Radial spokes from center to outer nodes */}
+      <line x1="240" y1="240" x2="110" y2="160" stroke="#7ECECA" strokeOpacity="0.07" strokeWidth="0.5" />
+      <line x1="240" y1="240" x2="348" y2="148" stroke="#7ECECA" strokeOpacity="0.07" strokeWidth="0.5" />
+      <line x1="240" y1="240" x2="88" y2="310" stroke="#7ECECA" strokeOpacity="0.07" strokeWidth="0.5" />
+      <line x1="240" y1="240" x2="376" y2="300" stroke="#7ECECA" strokeOpacity="0.07" strokeWidth="0.5" />
+      <line x1="240" y1="240" x2="400" y2="220" stroke="#7ECECA" strokeOpacity="0.05" strokeWidth="0.5" />
+      <line x1="240" y1="240" x2="240" y2="68" stroke="#7ECECA" strokeOpacity="0.05" strokeWidth="0.5" />
+
+      {/* Trade route arcs */}
+      <motion.path
+        d="M 110 160 Q 210 100 348 148"
+        stroke="#7ECECA" strokeOpacity="0.2" strokeWidth="1" strokeDasharray="5 7"
+        animate={{ strokeOpacity: [0.2, 0.38, 0.2] }}
+        transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
+      />
+      <motion.path
+        d="M 88 310 Q 210 365 376 300"
+        stroke="#7ECECA" strokeOpacity="0.15" strokeWidth="1" strokeDasharray="5 7"
+        animate={{ strokeOpacity: [0.15, 0.3, 0.15] }}
+        transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+      />
+      <motion.path
+        d="M 130 220 Q 260 285 400 220"
+        stroke="#7ECECA" strokeOpacity="0.12" strokeWidth="1"
+        animate={{ strokeOpacity: [0.12, 0.24, 0.12] }}
+        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 0.7 }}
+      />
+      <motion.path
+        d="M 148 308 Q 250 210 376 300"
+        stroke="#7ECECA" strokeOpacity="0.09" strokeWidth="1"
+        animate={{ strokeOpacity: [0.09, 0.2, 0.09] }}
+        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1.8 }}
+      />
+
+      {/* Center glow */}
+      <circle cx="240" cy="240" r="56" fill="url(#centerGlow)" />
+
+      {/* Center pulse ring */}
+      <motion.circle
+        cx={240} cy={240}
+        r={12}
+        stroke="#7ECECA"
+        fill="none"
+        animate={{ r: [12, 34], strokeOpacity: [0.35, 0] }}
+        transition={{ duration: 2.6, repeat: Infinity, ease: 'easeOut' }}
+      />
+
+      {/* Center node */}
+      <motion.circle
+        cx={240} cy={240} r={7}
+        fill="#7ECECA"
+        animate={{ fillOpacity: [0.75, 1, 0.75] }}
+        transition={{ duration: 2.6, repeat: Infinity, ease: 'easeInOut' }}
+      />
+
+      {/* Outer endpoint nodes */}
+      {([
+        { cx: 110, cy: 160, delay: 0 },
+        { cx: 348, cy: 148, delay: 0.6 },
+        { cx: 88,  cy: 310, delay: 1.2 },
+        { cx: 376, cy: 300, delay: 0.9 },
+        { cx: 400, cy: 220, delay: 1.5 },
+        { cx: 240, cy: 68,  delay: 0.3 },
+        { cx: 300, cy: 408, delay: 1.8 },
+      ] as { cx: number; cy: number; delay: number }[]).map((n, i) => (
+        <motion.circle
+          key={i}
+          cx={n.cx} cy={n.cy} r={4}
+          fill="#7ECECA"
+          animate={{ fillOpacity: [0.28, 0.65, 0.28] }}
+          transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: n.delay }}
+        />
+      ))}
+
+      {/* Mid-route secondary nodes */}
+      {([
+        { cx: 202, cy: 152, delay: 0.4 },
+        { cx: 304, cy: 182, delay: 1.0 },
+        { cx: 172, cy: 296, delay: 0.7 },
+        { cx: 320, cy: 264, delay: 1.3 },
+      ] as { cx: number; cy: number; delay: number }[]).map((n, i) => (
+        <motion.circle
+          key={`m${i}`}
+          cx={n.cx} cy={n.cy} r={2.5}
+          fill="#7ECECA"
+          animate={{ fillOpacity: [0.18, 0.42, 0.18] }}
+          transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: n.delay }}
+        />
+      ))}
+    </motion.svg>
+  );
+}
+
 export default function Hero() {
-  const t = useTranslations("Hero");
-  const heroStats = t.raw("stats") as Stat[];
-  const dashboardSignals = t.raw("dashboard.signals") as string[];
+  const t = useTranslations('Hero');
+  const stats = t.raw('stats') as Stat[];
 
   return (
-    <section id="top" className="hero-surface relative overflow-hidden px-5 py-24 sm:px-8 lg:px-10 lg:py-28">
-      <div className="pointer-events-none absolute inset-0">
-        <motion.div
-          animate={{ x: ["-4%", "4%", "-4%"] }}
-          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute left-0 top-20 h-px w-full bg-gradient-to-r from-transparent via-cyan/50 to-transparent"
-        />
-        <motion.div
-          animate={{ x: ["5%", "-5%", "5%"] }}
-          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-24 left-0 h-px w-full bg-gradient-to-r from-transparent via-gold/35 to-transparent"
-        />
-      </div>
+    <section id="top" className="relative min-h-screen overflow-hidden bg-[#070A0D]">
+      {/* Grid overlay */}
+      <div className="pointer-events-none absolute inset-0 bg-grid" />
 
-      <div className="mx-auto grid min-h-[calc(100vh-8rem)] max-w-7xl items-center gap-14 lg:grid-cols-[1.02fr_0.98fr]">
+      {/* Radial glow */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_28%_50%,rgba(26,95,122,0.18)_0%,transparent_70%)]" />
+
+      <div className="relative mx-auto grid min-h-screen max-w-7xl grid-cols-1 items-center gap-16 px-5 py-32 sm:px-8 lg:grid-cols-2 lg:px-10">
+
+        {/* Left: content */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.75, ease: "easeOut" }}
-          className="relative z-10"
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="flex flex-col"
         >
-          <span className="eyebrow">
-            {t("eyebrow")}
-          </span>
+          {/* Eyebrow */}
+          <motion.span
+            variants={fadeUp}
+            className="text-[11px] font-medium uppercase text-cyan"
+            style={{ letterSpacing: '0.2em', fontFamily: 'var(--font-inter)' }}
+          >
+            {t('eyebrow')}
+          </motion.span>
 
-          <h1 className="mt-8 max-w-5xl text-5xl font-semibold leading-[1.06] text-ice sm:text-6xl lg:text-7xl">
-            {t("headline.line1")}
-            <span className="block text-cyan">{t("headline.line2")}</span>
-            <span className="block">{t("headline.line3")}</span>
-            <span className="block text-frost">{t("headline.line4")}</span>
-          </h1>
+          {/* Headline */}
+          <motion.h1
+            variants={fadeUp}
+            className="mt-6 font-display font-extrabold leading-[1.0] tracking-tight text-[48px] lg:text-[72px]"
+          >
+            <span className="block text-white">
+              {t('headline.line1')} {t('headline.line2')}
+            </span>
+            <span className="block">
+              <span className="text-white">{t('headline.line3')} </span>
+              <span className="text-cyan">{t('headline.line4')}</span>
+            </span>
+          </motion.h1>
 
-          <p className="mt-8 max-w-2xl text-lg leading-8 text-steel">
-            {t("copy")}
-          </p>
+          {/* Subtext */}
+          <motion.p
+            variants={fadeUp}
+            className="mt-6 max-w-[560px] text-lg leading-relaxed"
+            style={{ color: 'rgba(244,247,248,0.6)', fontFamily: 'var(--font-inter)' }}
+          >
+            {t('copy')}
+          </motion.p>
 
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <a href="#contact" className="button-primary">
-              {t("primaryCta")}
+          {/* CTA buttons */}
+          <motion.div variants={fadeUp} className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center bg-[#1A5F7A] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#155168]"
+            >
+              {t('primaryCta')}
             </a>
-
-            <a href="#services" className="button-secondary">
-              {t("secondaryCta")}
+            <a
+              href="#services"
+              className="inline-flex items-center justify-center border px-6 py-3 text-sm font-semibold text-cyan transition-colors hover:border-[rgba(126,206,202,0.6)]"
+              style={{ borderColor: 'rgba(126,206,202,0.3)' }}
+            >
+              {t('secondaryCta')}
             </a>
-          </div>
+          </motion.div>
 
-          <div className="mt-14 grid max-w-2xl grid-cols-3 border border-white/10 bg-white/[0.025]">
-            {heroStats.map((stat) => (
-              <div key={stat.label} className="border-r border-white/10 p-4 last:border-r-0">
-                <div className="text-lg font-semibold text-ice">{stat.value}</div>
-                <div className="mt-1 text-xs leading-5 text-steel">{stat.label}</div>
+          {/* Signal bar */}
+          <motion.div
+            variants={fadeUp}
+            className="mt-12 grid grid-cols-3 pt-12"
+            style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}
+          >
+            {stats.map((stat, i) => (
+              <div
+                key={stat.label}
+                className="flex flex-col"
+                style={{
+                  paddingRight: i < stats.length - 1 ? '1.5rem' : 0,
+                  paddingLeft: i > 0 ? '1.5rem' : 0,
+                  borderRight: i < stats.length - 1 ? '1px solid rgba(255,255,255,0.08)' : 'none',
+                }}
+              >
+                <span className="text-base font-semibold text-white">{stat.value}</span>
+                <span className="mt-1 text-xs text-steel">{stat.label}</span>
               </div>
             ))}
-          </div>
+          </motion.div>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.12, ease: "easeOut" }}
-          className="relative z-10 min-h-[540px] overflow-hidden border border-white/10 bg-graphite/65 shadow-2xl shadow-black/30"
-          aria-label={t("dashboardAria")}
-        >
-          <div className="absolute inset-0 command-grid" />
-          <motion.div
-            animate={{ y: ["0%", "72%", "0%"] }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute left-0 top-8 h-24 w-full border-y border-cyan/20 bg-cyan/5"
-          />
-          <div className="absolute inset-x-6 top-6 flex items-center justify-between border-b border-white/10 pb-4">
-            <span className="text-xs font-semibold text-ice">{t("dashboard.title")}</span>
-            <span className="text-xs text-cyan">{t("dashboard.signalMap")}</span>
-          </div>
-          <div className="absolute left-6 right-6 top-24 grid gap-4">
-            {dashboardSignals.map((label, index) => (
-              <motion.div
-                key={label}
-                initial={{ opacity: 0, x: 24 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.55, delay: 0.32 + index * 0.12 }}
-                className="grid grid-cols-[1fr_auto] items-center gap-4 border border-white/10 bg-ink/70 p-4"
-              >
-                <div>
-                  <div className="text-sm font-semibold text-ice">{label}</div>
-                  <div className="mt-2 h-2 overflow-hidden bg-white/10">
-                    <motion.div
-                      initial={{ width: "24%" }}
-                      animate={{ width: `${72 + index * 8}%` }}
-                      transition={{ duration: 1.2, delay: 0.6 + index * 0.1 }}
-                      className="h-full bg-gradient-to-r from-cyan to-gold"
-                    />
-                  </div>
-                </div>
-                <span className="text-sm font-semibold text-frost">{86 + index * 4}</span>
-              </motion.div>
-            ))}
-          </div>
-          <div className="absolute bottom-6 left-6 right-6 grid grid-cols-2 gap-4">
-            <div className="border border-white/10 bg-white/[0.035] p-4">
-              <div className="text-xs text-steel">{t("dashboard.marketLabel")}</div>
-              <div className="mt-1 text-2xl font-semibold text-ice">{t("dashboard.marketValue")}</div>
-            </div>
-            <div className="border border-white/10 bg-white/[0.035] p-4">
-              <div className="text-xs text-steel">{t("dashboard.partnerLabel")}</div>
-              <div className="mt-1 text-lg font-semibold text-ice">{t("dashboard.partnerValue")}</div>
-            </div>
-          </div>
-        </motion.div>
+        {/* Right: animated SVG globe */}
+        <div className="hidden items-center justify-center lg:flex">
+          <TradeNetworkSVG />
+        </div>
       </div>
     </section>
   );
