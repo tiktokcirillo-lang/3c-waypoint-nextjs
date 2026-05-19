@@ -42,8 +42,7 @@ export default function Hero() {
           end:     '+=130%',
           scrub:   1.2,
           pin:     true,
-          // Uncomment once Lenis is wired at root layout:
-          // anticipatePin: 1,
+          anticipatePin: 1,
         },
       })
 
