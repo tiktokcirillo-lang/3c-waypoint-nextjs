@@ -60,7 +60,7 @@ const ATMOS_FRAG = /* glsl */`
   varying vec3 vNormal;
   void main() {
     float intensity = pow(0.52 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 2.2);
-    gl_FragColor = vec4(0.102, 0.373, 0.478, 1.0) * intensity * 1.6;
+    gl_FragColor = vec4(0.102, 0.373, 0.478, 1.0) * intensity * 1.1;
   }
 `
 
@@ -123,7 +123,7 @@ function Globe() {
       </mesh>
       {/* Grid */}
       {gridLines.map((pts, i) => (
-        <Line key={i} points={pts} color="#1A5F7A" lineWidth={0.4} transparent opacity={0.4} />
+        <Line key={i} points={pts} color="#2a8aaa" lineWidth={0.8} transparent opacity={0.55} />
       ))}
     </group>
   )
@@ -136,16 +136,16 @@ function Arc({ pts, delay }: { pts: THREE.Vector3[]; delay: number }) {
 
   const geometry = useMemo(() => {
     const curve = new THREE.CatmullRomCurve3(pts)
-    return new THREE.TubeGeometry(curve, 80, 0.0045, 5, false)
+    return new THREE.TubeGeometry(curve, 80, 0.007, 5, false)
   }, [pts])
 
   useFrame(({ clock }) => {
     if (!matRef.current) return
     const t = Math.max(0, Math.min(1, ((clock.getElapsedTime() - delay + 100) % 6) / 2.5))
     matRef.current.opacity =
-      t < 0.15 ? (t / 0.15) * 0.80
-      : t > 0.75 ? ((1 - t) / 0.25) * 0.80
-      : 0.80
+      t < 0.15 ? (t / 0.15) * 0.92
+      : t > 0.75 ? ((1 - t) / 0.25) * 0.92
+      : 0.92
   })
 
   return (
