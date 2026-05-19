@@ -1,6 +1,6 @@
 import { setRequestLocale } from "next-intl/server";
 import Authority from "../../components/Authority";
-import Hero from "../../components/Hero";
+import Hero from '@/components/hero';
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import Services from "../../components/Services";
