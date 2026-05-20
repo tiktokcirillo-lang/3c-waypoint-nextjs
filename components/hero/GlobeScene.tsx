@@ -2,256 +2,197 @@
 
 import { useRef, useMemo } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { Line } from '@react-three/drei'
+import { OrbitControls, Line } from '@react-three/drei'
 import * as THREE from 'three'
 
-// ─── Portos — foco no corredor Brasil → EUA ───────────────────────────────────
+// ─── Brand Palette ────────────────────────────────────────────────────────────
+const TEAL    = '#1A5F7A'
+const MINT    = '#7ECECA'
+const GLACIAL = '#A8E6E4'
+const R       = 1.5
 
-const PORTS: [number, number][] = [
-  [-23.95,  -46.33], //  0 Santos (SP)
-  [-22.89,  -43.17], //  1 Rio de Janeiro (RJ)
-  [-25.52,  -48.53], //  2 Paranaguá (PR)
-  [ -3.10,  -60.02], //  3 Manaus (AM)
-  [ 25.77,  -80.19], //  4 Miami (FL)
-  [ 40.66,  -74.07], //  5 New York (NY)
-  [ 33.74, -118.27], //  6 Los Angeles (CA)
-  [ 29.74,  -95.07], //  7 Houston (TX)
-  [ 32.08,  -81.09], //  8 Savannah (GA)
-  [ 51.90,    4.48], //  9 Rotterdam — âncora transatlântica
+// ─── Port Data ────────────────────────────────────────────────────────────────
+const PORTS = [
+  { id: 'SHA', label: 'Shanghai',    lat:  31.23, lon:  121.47 },
+  { id: 'LAX', label: 'Los Angeles', lat:  33.74, lon: -118.28 },
+  { id: 'SSZ', label: 'Santos',      lat: -23.96, lon:  -46.33 },
+  { id: 'MIA', label: 'Miami',       lat:  25.76, lon:  -80.19 },
+  { id: 'RTM', label: 'Rotterdam',   lat:  51.92, lon:    4.48 },
+  { id: 'HOU', label: 'Houston',     lat:  29.76, lon:  -95.37 },
 ]
 
-// [portA, portB, highlight] — true = corredor principal BR→US
-const ROUTES: [number, number, boolean][] = [
-  [0, 4, true],  // Santos → Miami
-  [0, 5, true],  // Santos → New York
-  [0, 6, true],  // Santos → Los Angeles
-  [0, 7, true],  // Santos → Houston
-  [1, 4, true],  // Rio → Miami
-  [2, 5, true],  // Paranaguá → New York
-  [3, 4, true],  // Manaus → Miami
-  [0, 8, true],  // Santos → Savannah
-  [4, 9, false], // Miami → Rotterdam
-  [5, 9, false], // New York → Rotterdam
+const CONNECTIONS: [string, string][] = [
+  ['SHA', 'LAX'],
+  ['SHA', 'RTM'],
+  ['LAX', 'HOU'],
+  ['HOU', 'MIA'],
+  ['MIA', 'SSZ'],
+  ['RTM', 'SSZ'],
+  ['HOU', 'RTM'],
+  ['SSZ', 'MIA'],
 ]
 
-// ─── Helpers ─────────────────────────────────────────────────────────────────
+// ─── Helpers ──────────────────────────────────────────────────────────────────
 
-function toVec3(lat: number, lng: number, r = 1): THREE.Vector3 {
-  const φ = (90 - lat) * (Math.PI / 180)
-  const λ = (lng + 180) * (Math.PI / 180)
+function toVec3(lat: number, lon: number, r = R): THREE.Vector3 {
+  const phi   = (90 - lat) * (Math.PI / 180)
+  const theta = (lon + 180) * (Math.PI / 180)
   return new THREE.Vector3(
-    -r * Math.sin(φ) * Math.cos(λ),
-     r * Math.cos(φ),
-     r * Math.sin(φ) * Math.sin(λ)
+    -r * Math.sin(phi) * Math.cos(theta),
+     r * Math.cos(phi),
+     r * Math.sin(phi) * Math.sin(theta),
   )
 }
 
-function arcPoints(a: THREE.Vector3, b: THREE.Vector3, segs = 64, lift = 0.24) {
-  return Array.from({ length: segs + 1 }, (_, i) => {
-    const t = i / segs
-    return new THREE.Vector3()
-      .lerpVectors(a, b, t)
-      .normalize()
-      .multiplyScalar(1 + Math.sin(Math.PI * t) * lift)
-  })
+function buildArc(a: THREE.Vector3, b: THREE.Vector3, lift = 0.30): THREE.Vector3[] {
+  const mid = a.clone().add(b).multiplyScalar(0.5).normalize().multiplyScalar(R * (1 + lift))
+  return new THREE.QuadraticBezierCurve3(a, mid, b).getPoints(100)
 }
 
-// ─── Shaders ─────────────────────────────────────────────────────────────────
+// ─── Port Marker ──────────────────────────────────────────────────────────────
 
-const ATMOS_VERT = /* glsl */`
-  varying vec3 vNormal;
-  void main() {
-    vNormal = normalize(normalMatrix * normal);
-    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-  }
-`
-const ATMOS_FRAG = /* glsl */`
-  varying vec3 vNormal;
-  void main() {
-    float intensity = pow(0.52 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 2.2);
-    gl_FragColor = vec4(0.102, 0.373, 0.478, 1.0) * intensity * 1.1;
-  }
-`
-
-// ─── Globe ───────────────────────────────────────────────────────────────────
-
-function Globe() {
-  const grp = useRef<THREE.Group>(null)
-
-  const atmos = useMemo(() => new THREE.ShaderMaterial({
-    vertexShader: ATMOS_VERT,
-    fragmentShader: ATMOS_FRAG,
-    blending: THREE.AdditiveBlending,
-    side: THREE.BackSide,
-    transparent: true,
-    depthWrite: false,
-  }), [])
-
-  const surface = useMemo(() => new THREE.MeshPhongMaterial({
-    color:     new THREE.Color('#091520'),
-    emissive:  new THREE.Color('#071828'),
-    specular:  new THREE.Color('#2a8fad'),
-    shininess: 30,
-    transparent: true,
-    opacity: 0.97,
-  }), [])
-
-  const gridLines = useMemo(() => {
-    const lines: THREE.Vector3[][] = []
-    for (let lat = -60; lat <= 60; lat += 30) {
-      if (lat === 0) continue
-      const pts: THREE.Vector3[] = []
-      for (let lng = -180; lng <= 181; lng += 4) pts.push(toVec3(lat, lng, 1.003))
-      lines.push(pts)
-    }
-    for (let lng = -180; lng < 180; lng += 40) {
-      const pts: THREE.Vector3[] = []
-      for (let lat = -85; lat <= 85; lat += 4) pts.push(toVec3(lat, lng, 1.003))
-      lines.push(pts)
-    }
-    return lines
-  }, [])
+function PortMarker({ position }: { position: THREE.Vector3 }) {
+  const glowRef = useRef<THREE.Mesh>(null!)
 
   useFrame(({ clock }) => {
-    if (grp.current) grp.current.rotation.y = clock.getElapsedTime() * 0.07
-  })
-
-  return (
-    <group ref={grp}>
-      <mesh scale={1.18}>
-        <sphereGeometry args={[1, 64, 64]} />
-        <primitive object={atmos} attach="material" />
-      </mesh>
-      <mesh>
-        <sphereGeometry args={[1, 64, 64]} />
-        <primitive object={surface} attach="material" />
-      </mesh>
-      {gridLines.map((pts, i) => (
-        <Line key={i} points={pts} color="#2a8aaa" lineWidth={0.8} transparent opacity={0.55} />
-      ))}
-    </group>
-  )
-}
-
-// ─── Trade Routes ─────────────────────────────────────────────────────────────
-
-function Arc({ pts, delay, highlight }: { pts: THREE.Vector3[]; delay: number; highlight: boolean }) {
-  const matRef = useRef<THREE.MeshBasicMaterial>(null)
-
-  const geometry = useMemo(() => {
-    const curve = new THREE.CatmullRomCurve3(pts)
-    return new THREE.TubeGeometry(curve, 80, highlight ? 0.009 : 0.005, 5, false)
-  }, [pts, highlight])
-
-  useFrame(({ clock }) => {
-    if (!matRef.current) return
-    const t = Math.max(0, Math.min(1, ((clock.getElapsedTime() - delay + 100) % 6) / 2.5))
-    matRef.current.opacity =
-      t < 0.15 ? (t / 0.15) * 0.92
-      : t > 0.75 ? ((1 - t) / 0.25) * 0.92
-      : 0.92
-  })
-
-  return (
-    <mesh geometry={geometry}>
-      <meshBasicMaterial ref={matRef} color={highlight ? '#A8E6E4' : '#7ECECA'} transparent opacity={0} />
-    </mesh>
-  )
-}
-
-function TradeRoutes() {
-  const grp = useRef<THREE.Group>(null)
-
-  const routes = useMemo(() =>
-    ROUTES.map(([a, b]) => arcPoints(toVec3(...PORTS[a]), toVec3(...PORTS[b]))),
-    []
-  )
-  const portVecs = useMemo(() => PORTS.map(([lat, lng]) => toVec3(lat, lng)), [])
-
-  useFrame(({ clock }) => {
-    if (grp.current) grp.current.rotation.y = clock.getElapsedTime() * 0.07
-  })
-
-  return (
-    <group ref={grp}>
-      {routes.map((pts, i) => (
-        <Arc key={i} pts={pts} delay={i * 0.5} highlight={ROUTES[i][2]} />
-      ))}
-      {portVecs.map((pos, i) => <Port key={i} position={pos} phase={i * 0.63} />)}
-    </group>
-  )
-}
-
-// ─── Port nodes — pulsing rings ───────────────────────────────────────────────
-
-function Port({ position, phase }: { position: THREE.Vector3; phase: number }) {
-  const ringRef = useRef<THREE.Mesh>(null)
-
-  useFrame(({ clock }) => {
-    if (!ringRef.current) return
-    const s = 1 + Math.sin(clock.getElapsedTime() * 2.2 + phase) * 0.35
-    ringRef.current.scale.setScalar(s)
-    ;(ringRef.current.material as THREE.MeshBasicMaterial).opacity =
-      0.25 - Math.sin(clock.getElapsedTime() * 2.2 + phase) * 0.12
+    const pulse = Math.sin(clock.getElapsedTime() * 2.2 + position.x * 7) * 0.5 + 0.5
+    glowRef.current.scale.setScalar(1 + pulse * 0.55)
+    ;(glowRef.current.material as THREE.MeshBasicMaterial).opacity = 0.12 + pulse * 0.18
   })
 
   return (
     <group position={position}>
-      <mesh ref={ringRef}>
-        <sphereGeometry args={[0.024, 8, 8]} />
-        <meshBasicMaterial color="#A8E6E4" transparent opacity={0.15} />
-      </mesh>
       <mesh>
-        <sphereGeometry args={[0.011, 8, 8]} />
-        <meshBasicMaterial color="#A8E6E4" />
+        <sphereGeometry args={[0.013, 10, 10]} />
+        <meshBasicMaterial color={GLACIAL} />
+      </mesh>
+      <mesh ref={glowRef}>
+        <sphereGeometry args={[0.028, 10, 10]} />
+        <meshBasicMaterial color={MINT} transparent opacity={0.18} />
       </mesh>
     </group>
+  )
+}
+
+// ─── Traveler ─────────────────────────────────────────────────────────────────
+
+function Traveler({ arc, speed, timeOffset }: { arc: THREE.Vector3[]; speed: number; timeOffset: number }) {
+  const ref = useRef<THREE.Mesh>(null!)
+
+  useFrame(({ clock }) => {
+    const t   = ((clock.getElapsedTime() * speed + timeOffset) % 1)
+    const idx = Math.floor(t * (arc.length - 1))
+    ref.current.position.copy(arc[idx])
+  })
+
+  return (
+    <mesh ref={ref}>
+      <sphereGeometry args={[0.009, 6, 6]} />
+      <meshBasicMaterial color={MINT} />
+    </mesh>
   )
 }
 
 // ─── Starfield ────────────────────────────────────────────────────────────────
 
-function Stars() {
-  const positions = useMemo(() => {
-    const arr = new Float32Array(2400)
-    for (let i = 0; i < 800; i++) {
-      const θ = Math.random() * Math.PI * 2
-      const φ = Math.acos(2 * Math.random() - 1)
-      const r = 9 + Math.random() * 3
-      arr[i*3]   = r * Math.sin(φ) * Math.cos(θ)
-      arr[i*3+1] = r * Math.sin(φ) * Math.sin(θ)
-      arr[i*3+2] = r * Math.cos(φ)
-    }
-    return arr
+function Starfield() {
+  const geo = useMemo(() => {
+    const g   = new THREE.BufferGeometry()
+    const pos = new Float32Array(1800 * 3).map(() => (Math.random() - 0.5) * 80)
+    g.setAttribute('position', new THREE.BufferAttribute(pos, 3))
+    return g
   }, [])
 
   return (
-    <points>
-      <bufferGeometry>
-        <bufferAttribute attach="attributes-position" args={[positions, 3]} />
-      </bufferGeometry>
-      <pointsMaterial size={0.018} color="#A8E6E4" transparent opacity={0.30} sizeAttenuation />
+    <points geometry={geo}>
+      <pointsMaterial color="#3A7A94" size={0.035} transparent opacity={0.5} sizeAttenuation />
     </points>
+  )
+}
+
+// ─── World Scene ──────────────────────────────────────────────────────────────
+
+function WorldScene() {
+  const groupRef = useRef<THREE.Group>(null!)
+
+  const portMap = useMemo(
+    () => Object.fromEntries(PORTS.map(p => [p.id, toVec3(p.lat, p.lon)])),
+    [],
+  )
+
+  const routes = useMemo(
+    () =>
+      CONNECTIONS.map(([a, b], i) => ({
+        key:    `${a}-${b}`,
+        arc:    buildArc(portMap[a], portMap[b]),
+        speed:  0.07 + i * 0.011,
+        offset: i / CONNECTIONS.length,
+      })),
+    [portMap],
+  )
+
+  useFrame((_, dt) => {
+    groupRef.current.rotation.y += dt * 0.055
+  })
+
+  return (
+    <group ref={groupRef}>
+      <mesh>
+        <sphereGeometry args={[R, 64, 64]} />
+        <meshPhongMaterial color="#060E1A" emissive="#071520" shininess={22} />
+      </mesh>
+
+      <mesh>
+        <sphereGeometry args={[R * 1.002, 24, 16]} />
+        <meshBasicMaterial color="#0D2E45" wireframe transparent opacity={0.20} />
+      </mesh>
+
+      <mesh>
+        <sphereGeometry args={[R * 1.07, 32, 32]} />
+        <meshBasicMaterial color={TEAL} transparent opacity={0.04} side={THREE.BackSide} />
+      </mesh>
+
+      {routes.map(({ key, arc }) => (
+        <Line key={key} points={arc} color={TEAL} lineWidth={1} transparent opacity={0.45} />
+      ))}
+
+      {routes.map(({ key, arc, speed, offset }) => (
+        <Traveler key={`t-${key}`} arc={arc} speed={speed} timeOffset={offset} />
+      ))}
+
+      {PORTS.map(p => (
+        <PortMarker key={p.id} position={portMap[p.id]} />
+      ))}
+    </group>
   )
 }
 
 // ─── Export ───────────────────────────────────────────────────────────────────
 
-export default function GlobeScene() {
+export default function GlobeScene({ className = '' }: { className?: string }) {
   return (
-    <Canvas
-      camera={{ position: [0, 0.2, 2.6], fov: 46 }}
-      gl={{ antialias: true, alpha: true }}
-      dpr={[1, 2]}
-      style={{ background: 'transparent' }}
-    >
-      <ambientLight intensity={0.12} />
-      <directionalLight position={[5, 3, 5]}   intensity={1.0} color="#A8E6E4" />
-      <directionalLight position={[-2, -1, -3]} intensity={0.15} color="#1A5F7A" />
-      <pointLight position={[2, 1, 3]} intensity={0.6} color="#7ECECA" distance={8} />
-      <Stars />
-      <Globe />
-      <TradeRoutes />
-    </Canvas>
+    <div className={className} style={{ width: '100%', height: '100%', background: 'transparent' }}>
+      <Canvas
+        camera={{ position: [0, 1.0, 4.2], fov: 42 }}
+        gl={{ antialias: true, alpha: true }}
+        dpr={[1, 2]}
+      >
+        <ambientLight intensity={0.22} />
+        <directionalLight position={[4,  6,  4]}  intensity={0.9}  color={GLACIAL} />
+        <directionalLight position={[-4, -2, -4]} intensity={0.14} color={TEAL}    />
+
+        <Starfield />
+        <WorldScene />
+
+        <OrbitControls
+          enablePan={false}
+          minDistance={2.8}
+          maxDistance={6.5}
+          enableDamping
+          dampingFactor={0.06}
+          rotateSpeed={0.4}
+        />
+      </Canvas>
+    </div>
   )
 }
