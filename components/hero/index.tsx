@@ -100,12 +100,13 @@ export default function Hero() {
       <div
         ref={globeRef}
         className="
-          absolute
-          top-1/2 -translate-y-1/2
-          right-[-14%]
-          w-[62vw] h-[62vw]
-          max-w-[860px] max-h-[860px]
-          pointer-events-none
+          absolute pointer-events-none
+          bottom-[-18%] right-[-22%]
+          w-[105vw] h-[105vw]
+          md:bottom-auto md:top-1/2 md:-translate-y-1/2
+          md:right-[-14%]
+          md:w-[62vw] md:h-[62vw]
+          md:max-w-[860px] md:max-h-[860px]
         "
       >
         <GlobeScene />
