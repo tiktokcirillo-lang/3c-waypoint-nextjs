@@ -7,7 +7,7 @@ const MINT    = '#7ECECA'
 const GLACIAL = '#A8E6E4'
 const TEAL    = '#1A5F7A'
 
-const INITIAL_POV = { lat: 18, lng: -40, altitude: 2.2 }
+const INITIAL_POV = { lat: 18, lng: -25, altitude: 2.4 }
 
 const PORTS = [
   { id: 'SHA', lat:  31.23, lng:  121.47, core: false },
