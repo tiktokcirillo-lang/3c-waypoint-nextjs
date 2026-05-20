@@ -19,12 +19,12 @@ export default function HeroLoader({ onComplete }: Props) {
     >
       {/* Eyebrow */}
       <motion.span
-        className="font-mono text-[10px] tracking-[0.38em] uppercase text-[#7ECECA] mb-6"
+        className="font-mono text-[10px] tracking-[0.38em] uppercase text-[#7ECECA] mb-8"
         initial={{ opacity: 0, y: 6 }}
         animate={{ opacity: 0.6, y: 0 }}
         transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
       >
-        3C Media · Comex
+        Since 2025
       </motion.span>
 
       {/* Wordmark reveal */}
