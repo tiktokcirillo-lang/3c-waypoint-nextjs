@@ -2,7 +2,7 @@
 
 import { useRef, useMemo } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { Line } from '@react-three/drei'
+import { Line, useTexture } from '@react-three/drei'
 import * as THREE from 'three'
 
 // ─── Brand Palette ────────────────────────────────────────────────────────────
@@ -110,6 +110,18 @@ function Starfield() {
   )
 }
 
+// ─── Earth Mesh ───────────────────────────────────────────────────────────────
+
+function EarthMesh() {
+  const texture = useTexture('/textures/earth-dark.jpg')
+  return (
+    <mesh>
+      <sphereGeometry args={[R, 64, 64]} />
+      <meshStandardMaterial map={texture} roughness={0.85} metalness={0.05} />
+    </mesh>
+  )
+}
+
 // ─── World Scene ──────────────────────────────────────────────────────────────
 
 function WorldScene() {
@@ -137,10 +149,7 @@ function WorldScene() {
 
   return (
     <group ref={groupRef}>
-      <mesh>
-        <sphereGeometry args={[R, 64, 64]} />
-        <meshPhongMaterial color="#081828" emissive="#0D2F45" shininess={30} />
-      </mesh>
+      <EarthMesh />
 
       <mesh>
         <sphereGeometry args={[R * 1.002, 24, 16]} />
@@ -149,7 +158,7 @@ function WorldScene() {
 
       <mesh>
         <sphereGeometry args={[R * 1.07, 32, 32]} />
-        <meshBasicMaterial color={TEAL} transparent opacity={0.12} side={THREE.BackSide} />
+        <meshBasicMaterial color={MINT} transparent opacity={0.06} side={THREE.BackSide} />
       </mesh>
 
       {routes.map(({ key, arc }) => (
