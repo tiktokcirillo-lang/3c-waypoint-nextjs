@@ -18,13 +18,19 @@ export default function HeroLoader({ onComplete }: Props) {
       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
     >
 
-      {/* ── Wordmark — 3C + dot + WAYPOINT ── */}
-      <div className="flex items-center gap-4">
+      {/* ── Wordmark ── */}
+      <div className="flex items-center gap-5">
 
-        {/* "3C" — teal, revela de baixo */}
+        {/* "3C" — gradiente teal igual ao logo */}
         <div className="overflow-hidden leading-none">
           <motion.span
-            className="block font-['Barlow_Condensed'] text-[clamp(2.8rem,8vw,7rem)] font-black uppercase leading-none text-[#7ECECA]"
+            className="block font-['Barlow_Condensed'] text-[clamp(2.8rem,8vw,7rem)] font-black uppercase leading-none"
+            style={{
+              background: 'linear-gradient(160deg, #A8E6E4 0%, #7ECECA 40%, #1A5F7A 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
             initial={{ y: '110%' }}
             animate={{ y: '0%' }}
             transition={{ duration: 1.0, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
@@ -33,15 +39,24 @@ export default function HeroLoader({ onComplete }: Props) {
           </motion.span>
         </div>
 
-        {/* Dot — marca registrada da identidade */}
+        {/* Waypoint dot — vermelho, o pin de navegação */}
         <motion.span
-          className="block w-[10px] h-[10px] rounded-full bg-[#A8E6E4] mb-1 flex-shrink-0"
+          className="relative flex-shrink-0 mb-1"
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.35, delay: 0.82, ease: [0.34, 1.56, 0.64, 1] }}
-        />
+          transition={{ duration: 0.4, delay: 0.85, ease: [0.34, 1.56, 0.64, 1] }}
+        >
+          {/* Halo pulsante */}
+          <motion.span
+            className="absolute inset-0 rounded-full bg-red-500"
+            animate={{ scale: [1, 1.9], opacity: [0.4, 0] }}
+            transition={{ duration: 1.4, delay: 1.1, repeat: Infinity, ease: 'easeOut' }}
+          />
+          {/* Dot */}
+          <span className="block w-[10px] h-[10px] rounded-full bg-red-500" />
+        </motion.span>
 
-        {/* "WAYPOINT" — branco, revela com delay */}
+        {/* "WAYPOINT" — branco, revela com stagger */}
         <div className="overflow-hidden leading-none">
           <motion.span
             className="block font-['Barlow_Condensed'] text-[clamp(2.8rem,8vw,7rem)] font-black uppercase leading-none text-white"
@@ -60,7 +75,7 @@ export default function HeroLoader({ onComplete }: Props) {
         className="font-mono text-[10px] tracking-[0.38em] uppercase text-[#7ECECA] mt-5"
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.45 }}
-        transition={{ duration: 0.8, delay: 0.9 }}
+        transition={{ duration: 0.8, delay: 0.95 }}
       >
         Since 2025
       </motion.span>
