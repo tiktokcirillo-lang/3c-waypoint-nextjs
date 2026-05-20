@@ -27,17 +27,15 @@ export default function HeroLoader({ onComplete }: Props) {
         Since 2025
       </motion.span>
 
-      {/* Wordmark reveal */}
-      <div className="overflow-hidden">
-        <motion.h1
-          className="font-['Barlow_Condensed'] text-[clamp(3rem,9vw,8rem)] font-black uppercase tracking-[-0.02em] text-white leading-none"
-          initial={{ y: '105%' }}
-          animate={{ y: '0%' }}
-          transition={{ duration: 1.0, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-        >
-          WAYPOINT
-        </motion.h1>
-      </div>
+      {/* Logo */}
+      <motion.img
+        src="/logo.png"
+        alt="3C Waypoint"
+        className="h-12 w-auto"
+        initial={{ opacity: 0, scale: 0.96 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.9, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+      />
 
       {/* Progress bar */}
       <motion.div
