@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 
 const Globe = dynamic(() => import('react-globe.gl'), { ssr: false })
@@ -34,7 +34,19 @@ const ARCS = [
 })
 
 export default function GlobeScene({ className = '' }: { className?: string }) {
-  const globeRef = useRef<any>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const globeRef     = useRef<any>(null)
+  const [dims, setDims] = useState({ w: 800, h: 800 })
+
+  useEffect(() => {
+    if (!containerRef.current) return
+    const ro = new ResizeObserver(([entry]) => {
+      const { width, height } = entry.contentRect
+      if (width > 0 && height > 0) setDims({ w: Math.round(width), h: Math.round(height) })
+    })
+    ro.observe(containerRef.current)
+    return () => ro.disconnect()
+  }, [])
 
   useEffect(() => {
     const g = globeRef.current
@@ -47,11 +59,11 @@ export default function GlobeScene({ className = '' }: { className?: string }) {
   }, [])
 
   return (
-    <div className={className} style={{ width: '100%', height: '100%' }}>
+    <div ref={containerRef} className={className} style={{ width: '100%', height: '100%' }}>
       <Globe
         ref={globeRef}
-        width={undefined}
-        height={undefined}
+        width={dims.w}
+        height={dims.h}
         backgroundColor="rgba(0,0,0,0)"
         globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.png"
         bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
