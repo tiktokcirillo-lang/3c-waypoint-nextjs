@@ -7,14 +7,24 @@ const MINT    = '#7ECECA'
 const GLACIAL = '#A8E6E4'
 const TEAL    = '#1A5F7A'
 
+const INITIAL_POV = { lat: 18, lng: -40, altitude: 2.2 }
+
 const PORTS = [
-  { id: 'SHA', lat:  31.23, lng:  121.47 },
-  { id: 'LAX', lat:  33.74, lng: -118.28 },
-  { id: 'SSZ', lat: -23.96, lng:  -46.33 },
-  { id: 'MIA', lat:  25.76, lng:  -80.19 },
-  { id: 'RTM', lat:  51.92, lng:    4.48 },
-  { id: 'HOU', lat:  29.76, lng:  -95.37 },
+  { id: 'SHA', lat:  31.23, lng:  121.47, core: false },
+  { id: 'LAX', lat:  33.74, lng: -118.28, core: false },
+  { id: 'SSZ', lat: -23.96, lng:  -46.33, core: true  },
+  { id: 'MIA', lat:  25.76, lng:  -80.19, core: true  },
+  { id: 'RTM', lat:  51.92, lng:    4.48, core: true  },
+  { id: 'HOU', lat:  29.76, lng:  -95.37, core: false },
 ]
+
+const CORE_RINGS = PORTS.filter(p => p.core).map(p => ({
+  lat: p.lat,
+  lng: p.lng,
+  maxR: 4,
+  propagationSpeed: 2,
+  repeatPeriod: 900,
+}))
 
 const PM = Object.fromEntries(PORTS.map(p => [p.id, p]))
 
@@ -62,7 +72,7 @@ export default function GlobeScene({ className = '' }: { className?: string }) {
     ctrl.autoRotateSpeed = 0.35
     ctrl.enableZoom      = false
     ctrl.enablePan       = false
-    globeRef.current.pointOfView({ lat: 18, lng: -20, altitude: 2.0 }, 0)
+    globeRef.current.pointOfView(INITIAL_POV, 0)
   }, [dims])
 
   return (
@@ -89,9 +99,14 @@ export default function GlobeScene({ className = '' }: { className?: string }) {
           arcDashGap={0.5}
           arcDashAnimateTime={2000}
           pointsData={PORTS}
-          pointColor={() => GLACIAL}
+          pointColor={(p: any) => p.core ? MINT : GLACIAL}
           pointAltitude={0.01}
-          pointRadius={0.4}
+          pointRadius={(p: any) => p.core ? 0.55 : 0.3}
+          ringsData={CORE_RINGS}
+          ringColor={() => (t: number) => `rgba(126,206,202,${1 - t})`}
+          ringMaxRadius="maxR"
+          ringPropagationSpeed="propagationSpeed"
+          ringRepeatPeriod="repeatPeriod"
         />
       )}
     </div>
