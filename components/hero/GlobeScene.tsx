@@ -2,7 +2,7 @@
 
 import { useRef, useMemo } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls, Line } from '@react-three/drei'
+import { Line } from '@react-three/drei'
 import * as THREE from 'three'
 
 // ─── Brand Palette ────────────────────────────────────────────────────────────
@@ -183,15 +183,6 @@ export default function GlobeScene({ className = '' }: { className?: string }) {
 
         <Starfield />
         <WorldScene />
-
-        <OrbitControls
-          enablePan={false}
-          minDistance={2.8}
-          maxDistance={6.5}
-          enableDamping
-          dampingFactor={0.06}
-          rotateSpeed={0.4}
-        />
       </Canvas>
     </div>
   )
