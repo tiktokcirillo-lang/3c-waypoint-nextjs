@@ -87,7 +87,7 @@ function Traveler({ arc, speed, timeOffset }: { arc: THREE.Vector3[]; speed: num
 
   return (
     <mesh ref={ref}>
-      <sphereGeometry args={[0.009, 6, 6]} />
+      <sphereGeometry args={[0.013, 6, 6]} />
       <meshBasicMaterial color={MINT} />
     </mesh>
   )
@@ -139,7 +139,7 @@ function WorldScene() {
     <group ref={groupRef}>
       <mesh>
         <sphereGeometry args={[R, 64, 64]} />
-        <meshPhongMaterial color="#060E1A" emissive="#071520" shininess={22} />
+        <meshPhongMaterial color="#081828" emissive="#0D2F45" shininess={30} />
       </mesh>
 
       <mesh>
@@ -149,11 +149,11 @@ function WorldScene() {
 
       <mesh>
         <sphereGeometry args={[R * 1.07, 32, 32]} />
-        <meshBasicMaterial color={TEAL} transparent opacity={0.04} side={THREE.BackSide} />
+        <meshBasicMaterial color={TEAL} transparent opacity={0.12} side={THREE.BackSide} />
       </mesh>
 
       {routes.map(({ key, arc }) => (
-        <Line key={key} points={arc} color={TEAL} lineWidth={1} transparent opacity={0.45} />
+        <Line key={key} points={arc} color={MINT} lineWidth={1.5} transparent opacity={0.80} />
       ))}
 
       {routes.map(({ key, arc, speed, offset }) => (
