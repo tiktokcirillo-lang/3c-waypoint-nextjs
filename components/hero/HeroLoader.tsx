@@ -7,7 +7,7 @@ interface Props { onComplete: () => void }
 
 export default function HeroLoader({ onComplete }: Props) {
   useEffect(() => {
-    const t = setTimeout(onComplete, 2400)
+    const t = setTimeout(onComplete, 2600)
     return () => clearTimeout(t)
   }, [onComplete])
 
@@ -15,42 +15,71 @@ export default function HeroLoader({ onComplete }: Props) {
     <motion.div
       className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#0A0E10]"
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
     >
-      {/* Eyebrow */}
+
+      {/* ── Wordmark — 3C + dot + WAYPOINT ── */}
+      <div className="flex items-center gap-4">
+
+        {/* "3C" — teal, revela de baixo */}
+        <div className="overflow-hidden leading-none">
+          <motion.span
+            className="block font-['Barlow_Condensed'] text-[clamp(2.8rem,8vw,7rem)] font-black uppercase leading-none text-[#7ECECA]"
+            initial={{ y: '110%' }}
+            animate={{ y: '0%' }}
+            transition={{ duration: 1.0, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+          >
+            3C
+          </motion.span>
+        </div>
+
+        {/* Dot — marca registrada da identidade */}
+        <motion.span
+          className="block w-[10px] h-[10px] rounded-full bg-[#A8E6E4] mb-1 flex-shrink-0"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.35, delay: 0.82, ease: [0.34, 1.56, 0.64, 1] }}
+        />
+
+        {/* "WAYPOINT" — branco, revela com delay */}
+        <div className="overflow-hidden leading-none">
+          <motion.span
+            className="block font-['Barlow_Condensed'] text-[clamp(2.8rem,8vw,7rem)] font-black uppercase leading-none text-white"
+            initial={{ y: '110%' }}
+            animate={{ y: '0%' }}
+            transition={{ duration: 1.0, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          >
+            WAYPOINT
+          </motion.span>
+        </div>
+
+      </div>
+
+      {/* ── Since 2025 ── */}
       <motion.span
-        className="font-mono text-[10px] tracking-[0.38em] uppercase text-[#7ECECA] mb-8"
-        initial={{ opacity: 0, y: 6 }}
-        animate={{ opacity: 0.6, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+        className="font-mono text-[10px] tracking-[0.38em] uppercase text-[#7ECECA] mt-5"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.45 }}
+        transition={{ duration: 0.8, delay: 0.9 }}
       >
         Since 2025
       </motion.span>
 
-      {/* Logo */}
-      <motion.img
-        src="/logo.png"
-        alt="3C Waypoint"
-        className="h-12 w-auto"
-        initial={{ opacity: 0, scale: 0.96 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.9, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-      />
-
-      {/* Progress bar */}
+      {/* ── Progress bar ── */}
       <motion.div
-        className="mt-10 w-36 h-px bg-white/[0.08] relative overflow-hidden"
+        className="mt-8 w-36 h-px bg-white/[0.08] relative overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.55 }}
+        transition={{ delay: 0.7 }}
       >
         <motion.div
           className="absolute inset-y-0 left-0 bg-[#7ECECA]"
           initial={{ width: '0%' }}
           animate={{ width: '100%' }}
-          transition={{ duration: 1.5, delay: 0.65, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 1.6, delay: 0.8, ease: [0.4, 0, 0.2, 1] }}
         />
       </motion.div>
+
     </motion.div>
   )
 }
