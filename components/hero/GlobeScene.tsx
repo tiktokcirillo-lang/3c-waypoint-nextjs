@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useMemo } from 'react'
+import { useRef, useMemo, Suspense } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Line, useTexture } from '@react-three/drei'
 import * as THREE from 'three'
@@ -117,7 +117,7 @@ function EarthMesh() {
   return (
     <mesh>
       <sphereGeometry args={[R, 64, 64]} />
-      <meshStandardMaterial map={texture} roughness={0.85} metalness={0.05} />
+      <meshBasicMaterial map={texture} />
     </mesh>
   )
 }
@@ -191,7 +191,9 @@ export default function GlobeScene({ className = '' }: { className?: string }) {
         <directionalLight position={[-4, -2, -4]} intensity={0.14} color={TEAL}    />
 
         <Starfield />
-        <WorldScene />
+        <Suspense fallback={null}>
+          <WorldScene />
+        </Suspense>
       </Canvas>
     </div>
   )
