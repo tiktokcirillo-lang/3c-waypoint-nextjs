@@ -5,24 +5,33 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import { Line } from '@react-three/drei'
 import * as THREE from 'three'
 
-// ─── Data ────────────────────────────────────────────────────────────────────
+// ─── Portos — foco no corredor Brasil → EUA ───────────────────────────────────
 
 const PORTS: [number, number][] = [
-  [ 33.74, -118.27], //  0 Los Angeles
-  [ 40.66,  -74.07], //  1 New York
-  [ 51.90,    4.48], //  2 Rotterdam
-  [ 31.23,  121.47], //  3 Shanghai
-  [  1.26,  103.82], //  4 Singapore
-  [-23.95,  -46.33], //  5 Santos
-  [ 25.77,  -80.19], //  6 Miami
-  [ 53.54,    9.98], //  7 Hamburg
-  [ 35.10,  129.04], //  8 Busan
-  [ 25.27,   55.30], //  9 Dubai
+  [-23.95,  -46.33], //  0 Santos (SP)
+  [-22.89,  -43.17], //  1 Rio de Janeiro (RJ)
+  [-25.52,  -48.53], //  2 Paranaguá (PR)
+  [ -3.10,  -60.02], //  3 Manaus (AM)
+  [ 25.77,  -80.19], //  4 Miami (FL)
+  [ 40.66,  -74.07], //  5 New York (NY)
+  [ 33.74, -118.27], //  6 Los Angeles (CA)
+  [ 29.74,  -95.07], //  7 Houston (TX)
+  [ 32.08,  -81.09], //  8 Savannah (GA)
+  [ 51.90,    4.48], //  9 Rotterdam — âncora transatlântica
 ]
 
-const ROUTES = [
-  [0,3],[0,4],[1,2],[1,0],[5,2],[5,1],
-  [6,2],[3,8],[4,9],[2,7],[0,7],[1,9],
+// [portA, portB, highlight] — true = corredor principal BR→US
+const ROUTES: [number, number, boolean][] = [
+  [0, 4, true],  // Santos → Miami
+  [0, 5, true],  // Santos → New York
+  [0, 6, true],  // Santos → Los Angeles
+  [0, 7, true],  // Santos → Houston
+  [1, 4, true],  // Rio → Miami
+  [2, 5, true],  // Paranaguá → New York
+  [3, 4, true],  // Manaus → Miami
+  [0, 8, true],  // Santos → Savannah
+  [4, 9, false], // Miami → Rotterdam
+  [5, 9, false], // New York → Rotterdam
 ]
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -87,17 +96,14 @@ function Globe() {
     opacity: 0.97,
   }), [])
 
-  // Latitude / longitude grid lines — give the globe readable structure
   const gridLines = useMemo(() => {
     const lines: THREE.Vector3[][] = []
-    // Latitude rings: skip equator (0°) to avoid X artifact — use -60 -30 +30 +60
     for (let lat = -60; lat <= 60; lat += 30) {
       if (lat === 0) continue
       const pts: THREE.Vector3[] = []
       for (let lng = -180; lng <= 181; lng += 4) pts.push(toVec3(lat, lng, 1.003))
       lines.push(pts)
     }
-    // Meridians: every 40° to reduce visual noise at intersection
     for (let lng = -180; lng < 180; lng += 40) {
       const pts: THREE.Vector3[] = []
       for (let lat = -85; lat <= 85; lat += 4) pts.push(toVec3(lat, lng, 1.003))
@@ -112,17 +118,14 @@ function Globe() {
 
   return (
     <group ref={grp}>
-      {/* Atmosphere shell */}
       <mesh scale={1.18}>
         <sphereGeometry args={[1, 64, 64]} />
         <primitive object={atmos} attach="material" />
       </mesh>
-      {/* Surface sphere */}
       <mesh>
         <sphereGeometry args={[1, 64, 64]} />
         <primitive object={surface} attach="material" />
       </mesh>
-      {/* Grid */}
       {gridLines.map((pts, i) => (
         <Line key={i} points={pts} color="#2a8aaa" lineWidth={0.8} transparent opacity={0.55} />
       ))}
@@ -130,15 +133,15 @@ function Globe() {
   )
 }
 
-// ─── Trade Routes — TubeGeometry for real 3D arcs visible on all screens ──────
+// ─── Trade Routes ─────────────────────────────────────────────────────────────
 
-function Arc({ pts, delay }: { pts: THREE.Vector3[]; delay: number }) {
+function Arc({ pts, delay, highlight }: { pts: THREE.Vector3[]; delay: number; highlight: boolean }) {
   const matRef = useRef<THREE.MeshBasicMaterial>(null)
 
   const geometry = useMemo(() => {
     const curve = new THREE.CatmullRomCurve3(pts)
-    return new THREE.TubeGeometry(curve, 80, 0.007, 5, false)
-  }, [pts])
+    return new THREE.TubeGeometry(curve, 80, highlight ? 0.009 : 0.005, 5, false)
+  }, [pts, highlight])
 
   useFrame(({ clock }) => {
     if (!matRef.current) return
@@ -151,7 +154,7 @@ function Arc({ pts, delay }: { pts: THREE.Vector3[]; delay: number }) {
 
   return (
     <mesh geometry={geometry}>
-      <meshBasicMaterial ref={matRef} color="#7ECECA" transparent opacity={0} />
+      <meshBasicMaterial ref={matRef} color={highlight ? '#A8E6E4' : '#7ECECA'} transparent opacity={0} />
     </mesh>
   )
 }
@@ -171,7 +174,9 @@ function TradeRoutes() {
 
   return (
     <group ref={grp}>
-      {routes.map((pts, i) => <Arc key={i} pts={pts} delay={i * 0.5} />)}
+      {routes.map((pts, i) => (
+        <Arc key={i} pts={pts} delay={i * 0.5} highlight={ROUTES[i][2]} />
+      ))}
       {portVecs.map((pos, i) => <Port key={i} position={pos} phase={i * 0.63} />)}
     </group>
   )

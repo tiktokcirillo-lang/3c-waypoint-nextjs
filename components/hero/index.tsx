@@ -1,10 +1,12 @@
 'use client'
 
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
+import { AnimatePresence } from 'framer-motion'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import HeroText from './HeroText'
+import HeroLoader from './HeroLoader'
 
 // ─── Dynamic import — Three.js can't run on the server ───────────────────────
 const GlobeScene = dynamic(() => import('./GlobeScene'), {
@@ -21,6 +23,8 @@ export default function Hero() {
   const globeRef    = useRef<HTMLDivElement>(null)
   const textRef     = useRef<HTMLDivElement>(null)
   const gridRef     = useRef<HTMLDivElement>(null)
+
+  const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -74,77 +78,78 @@ export default function Hero() {
   }, [])
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative w-full h-screen overflow-hidden bg-[#0A0E10]"
-      aria-label="Hero — 3C Waypoint"
-    >
+    <>
+      <AnimatePresence>
+        {!loaded && <HeroLoader onComplete={() => setLoaded(true)} />}
+      </AnimatePresence>
 
-      {/* ── Background gradient layers ── */}
-      {/*
-        Two overlapping radials create depth without harshness:
-        • Right: warm teal haze behind the globe
-        • Left: dark gradient lets text stay legible
-      */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: [
-            'radial-gradient(ellipse 75% 65% at 72% 52%, rgba(26,95,122,0.18) 0%, transparent 65%)',
-            'radial-gradient(ellipse 55% 90% at 12% 100%, rgba(10,14,16,0.9) 0%, transparent 70%)',
-          ].join(', '),
-        }}
-      />
-
-      {/* ── Globe — positioned right of center ── */}
-      <div
-        ref={globeRef}
-        className="
-          absolute pointer-events-none
-          bottom-[-28%] right-[-18%]
-          w-[90vw] h-[90vw]
-          md:bottom-auto md:top-1/2 md:-translate-y-1/2
-          md:right-[-14%]
-          md:w-[62vw] md:h-[62vw]
-          md:max-w-[860px] md:max-h-[860px]
-        "
+      <section
+        ref={sectionRef}
+        className="relative w-full h-screen overflow-hidden bg-[#0A0E10]"
+        aria-label="Hero — 3C Waypoint"
       >
-        <GlobeScene />
-      </div>
 
-      {/* ── Typography layer ── */}
-      <div ref={textRef} className="absolute inset-0">
-        <HeroText />
-      </div>
+        {/* ── Background gradient layers ── */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: [
+              'radial-gradient(ellipse 75% 65% at 72% 52%, rgba(26,95,122,0.18) 0%, transparent 65%)',
+              'radial-gradient(ellipse 55% 90% at 12% 100%, rgba(10,14,16,0.9) 0%, transparent 70%)',
+            ].join(', '),
+          }}
+        />
 
-      {/* ── Decorative dot-grid — Active Theory texture ── */}
-      <div
-        ref={gridRef}
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          opacity: 0.028,
-          backgroundImage: [
-            'radial-gradient(circle, rgba(168,230,228,0.9) 1px, transparent 1px)',
-          ].join(', '),
-          backgroundSize: '48px 48px',
-        }}
-        aria-hidden
-      />
+        {/* ── Globe — positioned right of center ── */}
+        <div
+          ref={globeRef}
+          className="
+            absolute pointer-events-none
+            bottom-[-28%] right-[-18%]
+            w-[90vw] h-[90vw]
+            md:bottom-auto md:top-1/2 md:-translate-y-1/2
+            md:right-[-14%]
+            md:w-[62vw] md:h-[62vw]
+            md:max-w-[860px] md:max-h-[860px]
+          "
+        >
+          <GlobeScene />
+        </div>
 
-      {/* ── Bottom edge vignette ── */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none"
-        style={{ background: 'linear-gradient(to top, #0A0E10 0%, transparent 100%)' }}
-        aria-hidden
-      />
+        {/* ── Typography layer ── */}
+        <div ref={textRef} className="absolute inset-0">
+          <HeroText />
+        </div>
 
-      {/* ── Left edge vignette — keeps type legible over globe bleed ── */}
-      <div
-        className="absolute top-0 left-0 bottom-0 w-[45%] pointer-events-none"
-        style={{ background: 'linear-gradient(to right, rgba(10,14,16,0.55) 0%, transparent 100%)' }}
-        aria-hidden
-      />
+        {/* ── Decorative dot-grid — Active Theory texture ── */}
+        <div
+          ref={gridRef}
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            opacity: 0.028,
+            backgroundImage: [
+              'radial-gradient(circle, rgba(168,230,228,0.9) 1px, transparent 1px)',
+            ].join(', '),
+            backgroundSize: '48px 48px',
+          }}
+          aria-hidden
+        />
 
-    </section>
+        {/* ── Bottom edge vignette ── */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none"
+          style={{ background: 'linear-gradient(to top, #0A0E10 0%, transparent 100%)' }}
+          aria-hidden
+        />
+
+        {/* ── Left edge vignette — keeps type legible over globe bleed ── */}
+        <div
+          className="absolute top-0 left-0 bottom-0 w-[45%] pointer-events-none"
+          style={{ background: 'linear-gradient(to right, rgba(10,14,16,0.55) 0%, transparent 100%)' }}
+          aria-hidden
+        />
+
+      </section>
+    </>
   )
 }
