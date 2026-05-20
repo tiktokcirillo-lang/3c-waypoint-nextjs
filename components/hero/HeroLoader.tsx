@@ -19,44 +19,62 @@ export default function HeroLoader({ onComplete }: Props) {
     >
 
       {/* ── Wordmark ── */}
-      <div className="flex items-center gap-5">
+      <div className="flex items-center gap-4">
 
-        {/* "3C" — gradiente teal igual ao logo */}
-        <div className="overflow-hidden leading-none">
+        {/*
+          "3C" — container relative para ancorar o dot.
+          O overflow-hidden fica só no wrapper interno do texto
+          para o dot não ser cortado na animação de reveal.
+        */}
+        <div className="relative leading-none">
+
+          {/* Texto com mask reveal */}
+          <div className="overflow-hidden leading-none">
+            <motion.span
+              className="block font-['Barlow_Condensed'] text-[clamp(2.8rem,8vw,7rem)] font-black uppercase leading-none"
+              style={{
+                background: 'linear-gradient(160deg, #A8E6E4 0%, #7ECECA 40%, #1A5F7A 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+              initial={{ y: '110%' }}
+              animate={{ y: '0%' }}
+              transition={{ duration: 1.0, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            >
+              3C
+            </motion.span>
+          </div>
+
+          {/*
+            Waypoint pin — centro do "C".
+            "3" ocupa ~50% da largura, "C" os outros 50%.
+            Centro do C ≈ left 75%, top 50%.
+          */}
           <motion.span
-            className="block font-['Barlow_Condensed'] text-[clamp(2.8rem,8vw,7rem)] font-black uppercase leading-none"
-            style={{
-              background: 'linear-gradient(160deg, #A8E6E4 0%, #7ECECA 40%, #1A5F7A 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}
-            initial={{ y: '110%' }}
-            animate={{ y: '0%' }}
-            transition={{ duration: 1.0, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute"
+            style={{ left: '74%', top: '50%', transform: 'translate(-50%, -50%)' }}
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.4, delay: 0.9, ease: [0.34, 1.56, 0.64, 1] }}
           >
-            3C
+            {/* Halo pulsante */}
+            <motion.span
+              className="absolute rounded-full bg-red-500"
+              style={{ inset: '-5px' }}
+              animate={{ scale: [1, 2.6], opacity: [0.55, 0] }}
+              transition={{ duration: 1.5, delay: 1.15, repeat: Infinity, ease: 'easeOut' }}
+            />
+            {/* Pin */}
+            <span
+              className="block w-[11px] h-[11px] rounded-full bg-red-500"
+              style={{ boxShadow: '0 0 10px 2px rgba(239,68,68,0.65)' }}
+            />
           </motion.span>
+
         </div>
 
-        {/* Waypoint dot — vermelho, o pin de navegação */}
-        <motion.span
-          className="relative flex-shrink-0 mb-1"
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.85, ease: [0.34, 1.56, 0.64, 1] }}
-        >
-          {/* Halo pulsante */}
-          <motion.span
-            className="absolute inset-0 rounded-full bg-red-500"
-            animate={{ scale: [1, 1.9], opacity: [0.4, 0] }}
-            transition={{ duration: 1.4, delay: 1.1, repeat: Infinity, ease: 'easeOut' }}
-          />
-          {/* Dot */}
-          <span className="block w-[10px] h-[10px] rounded-full bg-red-500" />
-        </motion.span>
-
-        {/* "WAYPOINT" — branco, revela com stagger */}
+        {/* "WAYPOINT" */}
         <div className="overflow-hidden leading-none">
           <motion.span
             className="block font-['Barlow_Condensed'] text-[clamp(2.8rem,8vw,7rem)] font-black uppercase leading-none text-white"
