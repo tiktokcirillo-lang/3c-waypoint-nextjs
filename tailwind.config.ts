@@ -36,14 +36,19 @@ export default {
         "wide":    "0.2em",
       },
       animation: {
-        "ticker":    "ticker 30s linear infinite",
-        "fade-up":   "fadeUp 0.7s ease forwards",
-        "pulse-dot": "pulseDot 2s ease-in-out infinite",
+        "ticker":         "ticker 40s linear infinite",
+        "ticker-reverse": "tickerReverse 40s linear infinite",
+        "fade-up":        "fadeUp 0.7s ease forwards",
+        "pulse-dot":      "pulseDot 2s ease-in-out infinite",
       },
       keyframes: {
         ticker: {
           "0%":   { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
+        },
+        tickerReverse: {
+          "0%":   { transform: "translateX(-50%)" },
+          "100%": { transform: "translateX(0)" },
         },
         fadeUp: {
           "0%":   { opacity: "0", transform: "translateY(24px)" },

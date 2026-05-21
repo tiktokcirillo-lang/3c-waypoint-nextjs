@@ -1,6 +1,7 @@
 import { setRequestLocale } from "next-intl/server";
 import Authority from "../../components/Authority";
 import Hero from '@/components/hero';
+import ComexTicker from "../../components/ComexTicker";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import Services from "../../components/Services";
@@ -20,6 +21,7 @@ export default async function HomePage({ params }: Props) {
       <Navbar />
       <main className="overflow-hidden">
         <Hero />
+        <ComexTicker />
         <Services />
         <Authority />
         <TradeIntelligence />
