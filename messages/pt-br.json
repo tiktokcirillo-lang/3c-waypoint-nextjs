@@ -96,7 +96,7 @@
   },
   "TradeIntelligence": {
     "eyebrow": "Inteligência Comercial",
-    "title": "Estratégia informada por como importadores pesquisam, comparam e reduzem risco.",
+    "title": "Estratégia orientada pela forma como importadores pesquisam, comparam e reduzem riscos.",
     "copy": "A 3C Waypoint conecta tópicos técnicos de comércio à descoberta comercial: as perguntas que importadores pesquisam, as páginas de compliance em que confiam e os sinais de prova necessários antes do contato.",
     "panelTitle": "Camada de inteligência",
     "partner": "Strategic Trade Intelligence Partner",
@@ -109,8 +109,8 @@
   },
   "RadarTheory": {
     "eyebrow": "METODOLOGIA",
-    "title": "A Teoria do Radar™ — nosso framework estratégico para marcas de comércio regulado.",
-    "copy": "Um radar aduaneiro detecta, rastreia e prioriza cargas antes de chegarem à fronteira. Um radar de marca faz o mesmo com oportunidades comerciais — detectando o sinal do comprador antes que seu concorrente o faça. Quatro quadrantes: DETECTAR · CALIBRAR · POSICIONAR · RESPONDER.",
+    "title": "A Teoria do Radar™: nosso framework estratégico para marcas de comércio regulado.",
+    "copy": "Um radar aduaneiro detecta, rastreia e prioriza cargas antes de chegarem à fronteira. Um radar de marca faz o mesmo com oportunidades comerciais, detectando o sinal do comprador antes que o concorrente o faça. Quatro quadrantes: DETECTAR · CALIBRAR · POSICIONAR · RESPONDER.",
     "quadrants": [
       {
         "label": "DETECTAR",
@@ -122,11 +122,11 @@
       },
       {
         "label": "POSICIONAR",
-        "description": "Construa arquitetura de marca, voz e provas que vencem a rodada de confiança."
+        "description": "Construa arquitetura de marca, voz e evidências que conquistam a confiança do comprador."
       },
       {
         "label": "RESPONDER",
-        "description": "Lance conteúdo, campanhas e enablement de vendas que convertem sinais em pipeline."
+        "description": "Lance conteúdo, campanhas e capacitação comercial que convertem sinais em pipeline."
       }
     ]
   },
