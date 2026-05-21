@@ -79,6 +79,7 @@ export default function GlobeScene({ className = '' }: { className?: string }) {
     <div
       ref={containerRef}
       className={className}
+      data-cursor="globe"
       style={{ width: '100%', height: '100%', overflow: 'hidden' }}
     >
       {dims && (
