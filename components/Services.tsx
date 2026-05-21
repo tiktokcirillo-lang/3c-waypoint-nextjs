@@ -19,7 +19,7 @@ export default function Services() {
   const services = t.raw("items") as Service[];
 
   return (
-    <section id="services" className="bg-[#070A0D] px-5 py-24 sm:px-8 lg:px-10">
+    <section id="services" className="bg-[#070A0D] px-5 pt-14 pb-24 sm:px-8 lg:px-10">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial="hidden"

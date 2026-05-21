@@ -44,7 +44,7 @@ function TickerRow({ reverse = false }: { reverse?: boolean }) {
 export default function ComexTicker() {
   return (
     <section
-      className="relative w-full overflow-hidden py-4"
+      className="relative w-full overflow-hidden py-5"
       style={{ background: '#0A0F14' }}
       aria-hidden="true"
     >
