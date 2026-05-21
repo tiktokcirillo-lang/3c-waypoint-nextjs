@@ -45,8 +45,9 @@ export default function Hero() {
           trigger: sectionRef.current,
           start:   'top top',
           end:     '+=50%',
-          scrub:   1.2,
-          pin:     true,
+          scrub:      1.2,
+          pin:        true,
+          pinSpacing: false,
           anticipatePin: 1,
         },
       })
@@ -86,7 +87,7 @@ export default function Hero() {
 
       <section
         ref={sectionRef}
-        className="relative w-full h-screen overflow-hidden bg-[#0A0E10]"
+        className="relative z-10 w-full h-screen overflow-hidden bg-[#0A0E10]"
         aria-label="Hero — 3C Waypoint"
       >
 
