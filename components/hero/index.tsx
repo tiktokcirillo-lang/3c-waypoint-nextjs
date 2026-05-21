@@ -7,6 +7,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import HeroText from './HeroText'
 import HeroLoader from './HeroLoader'
+import ComexTicker from '../ComexTicker'
 
 // ─── Dynamic import — Three.js can't run on the server ───────────────────────
 const GlobeScene = dynamic(() => import('./GlobeScene'), {
@@ -148,6 +149,11 @@ export default function Hero() {
           style={{ background: 'linear-gradient(to right, rgba(10,14,16,0.55) 0%, transparent 100%)' }}
           aria-hidden
         />
+
+        {/* ── Comex Ticker — bottom bar, anchored to pinned hero ── */}
+        <div className="absolute bottom-0 left-0 right-0 z-20">
+          <ComexTicker />
+        </div>
 
       </section>
     </>
