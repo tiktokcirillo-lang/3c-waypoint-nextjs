@@ -47,7 +47,6 @@ export default function Hero() {
           end:     '+=50%',
           scrub:      1.2,
           pin:        true,
-          pinSpacing: false,
           anticipatePin: 1,
         },
       })
