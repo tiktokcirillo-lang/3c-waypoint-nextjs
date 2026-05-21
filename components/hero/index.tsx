@@ -105,9 +105,9 @@ export default function Hero() {
           ref={globeRef}
           className="
             absolute pointer-events-none
-            bottom-[-28%] right-[-18%]
-            w-[90vw] h-[90vw]
-            md:bottom-auto md:top-1/2 md:-translate-y-1/2
+            bottom-[-8%] left-1/2 -translate-x-1/2
+            w-[108vw] h-[108vw]
+            md:bottom-auto md:top-1/2 md:-translate-y-1/2 md:translate-x-0 md:left-auto
             md:right-[-14%]
             md:w-[62vw] md:h-[62vw]
             md:max-w-[860px] md:max-h-[860px]
