@@ -5,6 +5,7 @@ import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import Services from "../../components/Services";
 import TradeIntelligence from "../../components/TradeIntelligence";
+import RadarTheory from "../../components/RadarTheory";
 import CTA from "../../components/CTA";
 
 type Props = {
@@ -23,6 +24,7 @@ export default async function HomePage({ params }: Props) {
         <Services />
         <Authority />
         <TradeIntelligence />
+        <RadarTheory />
         <CTA />
       </main>
       <Footer />

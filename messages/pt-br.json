@@ -21,7 +21,7 @@
     ]
   },
   "Hero": {
-    "eyebrow": "Infraestrutura de Marketing para Despachantes Aduaneiros e Freight Forwarders",
+    "eyebrow": "PARCEIRO ESTRATÉGICO DE INTELIGÊNCIA COMERCIAL · NCBFAA · AAEI · TPM",
     "headline": {
       "line1": "Você conhece seus",
       "line2": "códigos HTSUS.",
@@ -57,23 +57,23 @@
     "copy": "A 3C Waypoint transforma expertise aduaneira complexa em autoridade comercial visível e durável em busca, conteúdo, presença executiva e pontos de aquisição de importadores.",
     "items": [
       {
-        "title": "Infraestrutura de autoridade em busca",
-        "description": "Programas técnicos de SEO para HTSUS, UFLPA, ISF, AD/CVD, drawback, FTZ e páginas de aquisição específicas para brokers.",
+        "title": "Infraestrutura de Autoridade em Busca",
+        "description": "Programas técnicos de SEO para HTSUS, UFLPA, ISF, AD/CVD, drawback, FTZ e páginas de aquisição específicas para brokers. Construímos o conteúdo que seus compradores encontram quando buscam respostas de compliance.",
         "signal": "01"
       },
       {
-        "title": "Posicionamento de demanda de importadores",
-        "description": "Narrativas de mercado, landing pages e sinais locais para importadores que avaliam despachantes aduaneiros e parceiros de forwarding.",
+        "title": "Posicionamento de Demanda de Importadores",
+        "description": "Narrativas de mercado, landing pages e sinais locais construídos para importadores que avaliam despachantes aduaneiros e parceiros de forwarding. Sua empresa posicionada onde a decisão começa.",
         "signal": "02"
       },
       {
-        "title": "Sistemas de credibilidade executiva",
-        "description": "LinkedIn, liderança técnica e operações de conteúdo que tornam a expertise regulatória visível antes do início da compra.",
+        "title": "Sistemas de Credibilidade Executiva",
+        "description": "Programas de LinkedIn, liderança técnica e operações de conteúdo que tornam a expertise regulatória visível antes do início da compra. Falamos comex com fluência nativa.",
         "signal": "03"
       },
       {
-        "title": "Diagnósticos de conversão",
-        "description": "Auditorias de site, SERP e mensagem que identificam onde a intenção qualificada de importadores está escapando do pipeline comercial.",
+        "title": "Diagnósticos de Conversão",
+        "description": "Auditorias de site, SERP e mensagem que identificam onde a intenção qualificada de importadores está escapando do seu pipeline. Diagnóstico de preço fixo, com prazo definido e acionável.",
         "signal": "04"
       }
     ]
@@ -107,14 +107,38 @@
       "Posicionamento de mercado para brokers e forwarders"
     ]
   },
+  "RadarTheory": {
+    "eyebrow": "METODOLOGIA",
+    "title": "A Teoria do Radar™ — nosso framework estratégico para marcas de comércio regulado.",
+    "copy": "Um radar aduaneiro detecta, rastreia e prioriza cargas antes de chegarem à fronteira. Um radar de marca faz o mesmo com oportunidades comerciais — detectando o sinal do comprador antes que seu concorrente o faça. Quatro quadrantes: DETECTAR · CALIBRAR · POSICIONAR · RESPONDER.",
+    "quadrants": [
+      {
+        "label": "DETECTAR",
+        "description": "Inteligência de mercado. Mudanças tarifárias, alterações regulatórias, sinais de dor do lado do importador."
+      },
+      {
+        "label": "CALIBRAR",
+        "description": "Afine sua proposta de valor em relação ao sinal detectado."
+      },
+      {
+        "label": "POSICIONAR",
+        "description": "Construa arquitetura de marca, voz e provas que vencem a rodada de confiança."
+      },
+      {
+        "label": "RESPONDER",
+        "description": "Lance conteúdo, campanhas e enablement de vendas que convertem sinais em pipeline."
+      }
+    ]
+  },
   "CTA": {
     "eyebrow": "Diagnóstico Enterprise",
     "title": "Encontre as lacunas de autoridade entre sua expertise comercial e seu próximo importador.",
     "copy": "Solicite uma revisão focada em visibilidade de busca, posicionamento em temas regulados, arquitetura de páginas e sinais de credibilidade para compradores.",
-    "button": "Agendar conversa estratégica"
+    "button": "Agendar conversa estratégica",
+    "email": "mailto:info@3cmediamktg.com"
   },
   "Footer": {
     "copy": "Infraestrutura premium de marketing B2B para despachantes aduaneiros, freight forwarders, NVOCCs e empresas de compliance comercial dos EUA.",
-    "partner": "Strategic Trade Intelligence Partner"
+    "partner": "O radar que detecta seu próximo importador antes do seu concorrente."
   }
 }

@@ -67,7 +67,7 @@ export default function CTA() {
         </p>
 
         <a
-          href="mailto:hello@3cwaypoint.com"
+          href={t("email")}
           className="mt-10 inline-flex items-center justify-center text-sm font-semibold text-white transition-colors duration-200 hover:bg-[#155168]"
           style={{
             background: '#1A5F7A',

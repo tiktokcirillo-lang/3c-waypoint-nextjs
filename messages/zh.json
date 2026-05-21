@@ -21,7 +21,7 @@
     ]
   },
   "Hero": {
-    "eyebrow": "面向报关行与货运代理的营销基础设施",
+    "eyebrow": "战略贸易情报合作伙伴 · NCBFAA · AAEI · TPM",
     "headline": {
       "line1": "您熟悉",
       "line2": "HTSUS 编码。",
@@ -58,22 +58,22 @@
     "items": [
       {
         "title": "搜索权威基础设施",
-        "description": "面向 HTSUS、UFLPA、ISF、AD/CVD、drawback、FTZ 以及报关行获客页面的技术 SEO 项目。",
+        "description": "面向 HTSUS、UFLPA、ISF、AD/CVD、drawback、FTZ 以及报关行获客页面的技术 SEO 项目。我们构建买家在搜索合规答案时所能找到的内容。",
         "signal": "01"
       },
       {
         "title": "进口商需求定位",
-        "description": "为评估报关行和货运代理伙伴的进口商构建市场叙事、落地页与本地信号。",
+        "description": "为评估报关行和货运代理伙伴的进口商构建市场叙事、落地页与本地信号。让您的公司出现在决策开始的地方。",
         "signal": "02"
       },
       {
         "title": "高管可信度系统",
-        "description": "通过 LinkedIn、专业观点与技术内容运营，让监管专业能力在采购开始前就被看见。",
+        "description": "通过 LinkedIn 项目、专业观点与技术内容运营，让监管专业能力在采购开始前就被看见。我们以本土视角深谙外贸语言。",
         "signal": "03"
       },
       {
         "title": "转化诊断",
-        "description": "审计网站、搜索结果页面和信息表达，识别合格进口商意图在商业流程中流失的位置。",
+        "description": "审计网站、搜索结果页面和信息表达，识别合格进口商意图在流程中流失的位置。固定费用、有时限、可落地执行。",
         "signal": "04"
       }
     ]
@@ -107,14 +107,38 @@
       "报关行与货运代理市场定位"
     ]
   },
+  "RadarTheory": {
+    "eyebrow": "方法论",
+    "title": "雷达理论™ — 我们为受监管贸易品牌打造的战略框架。",
+    "copy": "海关雷达在货物抵达边境前就进行探测、追踪和优先排序。品牌雷达对商业机会做同样的事 — 在竞争对手之前捕捉买家信号。四个象限：探测 · 校准 · 定位 · 响应。",
+    "quadrants": [
+      {
+        "label": "探测",
+        "description": "市场情报。关税变动、监管变化、进口商侧的痛点信号。"
+      },
+      {
+        "label": "校准",
+        "description": "针对探测到的信号，精准打磨您的价值主张。"
+      },
+      {
+        "label": "定位",
+        "description": "构建品牌架构、语言体系和赢得信任的证明材料。"
+      },
+      {
+        "label": "响应",
+        "description": "交付内容、营销活动和销售支持，将信号转化为商业管道。"
+      }
+    ]
+  },
   "CTA": {
     "eyebrow": "企业级诊断",
     "title": "找出您的贸易专业能力与下一个进口商之间的权威缺口。",
     "copy": "申请一次聚焦搜索可见性、受监管主题定位、页面架构和买方可信度信号的审查。",
-    "button": "预约战略沟通"
+    "button": "预约战略沟通",
+    "email": "mailto:info@3cmediamktg.com"
   },
   "Footer": {
     "copy": "面向美国报关行、货运代理、NVOCC 和贸易合规公司的高端 B2B 营销基础设施。",
-    "partner": "Strategic Trade Intelligence Partner"
+    "partner": "在您的竞争对手之前，发现您下一个进口商的雷达。"
   }
 }

@@ -21,7 +21,7 @@
     ]
   },
   "Hero": {
-    "eyebrow": "Marketing Infrastructure for Customs Brokers & Freight Forwarders",
+    "eyebrow": "STRATEGIC TRADE INTELLIGENCE PARTNER · NCBFAA · AAEI · TPM",
     "headline": {
       "line1": "You know your",
       "line2": "HTSUS codes.",
@@ -57,23 +57,23 @@
     "copy": "3C Waypoint turns complex customs expertise into visible, durable commercial authority across search, content, executive presence, and importer acquisition touchpoints.",
     "items": [
       {
-        "title": "Search authority infrastructure",
-        "description": "Technical SEO programs for HTSUS, UFLPA, ISF, AD/CVD, drawback, FTZ, and broker-specific acquisition pages.",
+        "title": "Search Authority Infrastructure",
+        "description": "Technical SEO programs for HTSUS, UFLPA, ISF, AD/CVD, drawback, FTZ, and broker-specific acquisition pages. We build the content your buyers find when they search for compliance answers.",
         "signal": "01"
       },
       {
-        "title": "Importer demand positioning",
-        "description": "Market narratives, landing pages, and location signals built for importers evaluating customs brokers and forwarding partners.",
+        "title": "Importer Demand Positioning",
+        "description": "Market narratives, landing pages, and location signals built for importers evaluating customs brokers and forwarding partners. Your firm positioned where the decision begins.",
         "signal": "02"
       },
       {
-        "title": "Executive credibility systems",
-        "description": "LinkedIn, thought leadership, and technical content operations that make regulated trade expertise visible before procurement begins.",
+        "title": "Executive Credibility Systems",
+        "description": "LinkedIn programs, thought leadership, and technical content operations that make regulated trade expertise visible before procurement begins. We speak comex natively.",
         "signal": "03"
       },
       {
-        "title": "Conversion diagnostics",
-        "description": "Website, SERP, and message audits that identify where qualified importer intent is leaking from the commercial pipeline.",
+        "title": "Conversion Diagnostics",
+        "description": "Website, SERP, and message audits that identify where qualified importer intent is leaking from your pipeline. Fixed-fee diagnostic, time-boxed, actionable.",
         "signal": "04"
       }
     ]
@@ -107,14 +107,38 @@
       "Broker and forwarder market positioning"
     ]
   },
+  "RadarTheory": {
+    "eyebrow": "METHODOLOGY",
+    "title": "The Radar Theory™ — our strategic framework for regulated trade brands.",
+    "copy": "A customs radar detects, tracks, and prioritizes cargo before it reaches the border. A brand radar does the same for commercial opportunity — detecting the buyer's signal before your competitor does. Four quadrants: DETECT · CALIBRATE · POSITION · RESPOND.",
+    "quadrants": [
+      {
+        "label": "DETECT",
+        "description": "Market intelligence. Tariff shifts, regulatory change, importer-side pain signals."
+      },
+      {
+        "label": "CALIBRATE",
+        "description": "Sharpen your value proposition against the detected signal."
+      },
+      {
+        "label": "POSITION",
+        "description": "Build brand architecture, voice, and proof that wins the trust round."
+      },
+      {
+        "label": "RESPOND",
+        "description": "Ship content, campaigns, and sales enablement that convert signals into pipeline."
+      }
+    ]
+  },
   "CTA": {
     "eyebrow": "Enterprise Diagnostic",
     "title": "Find the authority gaps between your trade expertise and your next importer.",
     "copy": "Request a focused review of search visibility, regulated-topic positioning, page architecture, and buyer credibility signals.",
-    "button": "Schedule strategy call"
+    "button": "Schedule strategy call",
+    "email": "mailto:info@3cmediamktg.com"
   },
   "Footer": {
     "copy": "Premium B2B marketing infrastructure for U.S. customs brokers, freight forwarders, NVOCCs, and trade compliance firms.",
-    "partner": "Strategic Trade Intelligence Partner"
+    "partner": "The radar that detects your next importer before your competitor does."
   }
 }
