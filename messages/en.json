@@ -28,7 +28,7 @@
       "line3": "Your next client",
       "line4": "doesn't know your name."
     },
-    "copy": "Built for customs brokers, freight forwarders, NVOCCs and trade compliance firms operating in regulated U.S. trade environments.",
+    "copy": "We turn your customs expertise into authority that importers find before they call your competitor.",
     "primaryCta": "Request enterprise diagnostic",
     "secondaryCta": "Explore platform services",
     "stats": [
@@ -53,8 +53,8 @@
   },
   "Services": {
     "eyebrow": "Services",
-    "title": "A technical growth platform for regulated trade operators.",
-    "copy": "3C Waypoint turns complex customs expertise into visible, durable commercial authority across search, content, executive presence, and importer acquisition touchpoints.",
+    "title": "You master regulated trade. We make the market see it.",
+    "copy": "Customs brokers, freight forwarders, and NVOCCs lose business not from lack of technical expertise — but because the market can't see that expertise. 3C Waypoint builds the infrastructure that changes that.",
     "items": [
       {
         "title": "Search Authority Infrastructure",
@@ -83,15 +83,15 @@
     "title": "Positioning that respects the complexity of U.S. trade.",
     "copy": "Customs brokerage buyers do not respond to generic marketing language. They evaluate precision, risk literacy, jurisdictional competence, and the ability to explain regulated movement clearly.",
     "points": [
-      "Built for U.S. customs brokers, freight forwarders, NVOCCs, and trade compliance firms.",
-      "Structured around regulated-search behavior, importer risk questions, and compliance-driven buyer evaluation.",
-      "Designed to support long-term authority pages, technical content libraries, and sales-ready positioning.",
-      "Operates as strategic marketing infrastructure, not a generalist agency campaign."
+      "Importers searching for compliance find you first — not your competitor.",
+      "Your pipeline starts arriving pre-qualified, without the education cycle that drains your sales team's time.",
+      "Your technical authority sustains renewals, referrals, and expansion into new regulated segments.",
+      "You stop competing on price because the market already sees the depth of your operation."
     ],
     "metrics": [
-      { "value": "7", "label": "Priority SEO authority lanes" },
-      { "value": "4", "label": "Regulated trade operator segments" },
-      { "value": "1", "label": "Specialized enterprise platform" }
+      { "value": "+90 days", "label": "For established search authority in your regulatory niche" },
+      { "value": "1 vertical", "label": "The only market we serve: foreign trade in the U.S." },
+      { "value": "0 generic", "label": "No campaign we build could belong to another industry" }
     ]
   },
   "TradeIntelligence": {
@@ -101,10 +101,10 @@
     "panelTitle": "Intelligence layer",
     "partner": "Strategic Trade Intelligence Partner",
     "signals": [
-      "Commodity and compliance-topic mapping",
-      "Importer search intent classification",
-      "U.S. trade regulation content architecture",
-      "Broker and forwarder market positioning"
+      "Which compliance terms your target importer searches at the moment of doubt",
+      "What separates an importer ready to hire from one still comparing prices",
+      "Which U.S. regulatory pages build trust before the first commercial contact",
+      "How leading brokers position themselves to capture demand before competitors see the opportunity"
     ]
   },
   "RadarTheory": {
@@ -114,19 +114,19 @@
     "quadrants": [
       {
         "label": "DETECT",
-        "description": "Market intelligence. Tariff shifts, regulatory change, importer-side pain signals."
+        "description": "We identify where importers are searching for what you offer — before they know you exist."
       },
       {
         "label": "CALIBRATE",
-        "description": "Sharpen your value proposition against the detected signal."
+        "description": "We sharpen your message for the exact moment of the regulated buyer's decision."
       },
       {
         "label": "POSITION",
-        "description": "Build brand architecture, voice, and proof that wins the trust round."
+        "description": "We build the presence that makes your firm the answer — not one of the options."
       },
       {
         "label": "RESPOND",
-        "description": "Ship content, campaigns, and sales enablement that convert signals into pipeline."
+        "description": "We execute content and campaigns calibrated to the 90-to-180-day comex buying cycle."
       }
     ]
   },

@@ -28,7 +28,7 @@
       "line3": "Su próximo cliente",
       "line4": "no conoce su nombre."
     },
-    "copy": "Creado para agentes aduanales, freight forwarders, NVOCCs y firmas de cumplimiento comercial que operan en entornos regulados de comercio de EE. UU.",
+    "copy": "Convertimos tu expertise aduanera en autoridad que los importadores encuentran antes de llamar a tu competencia.",
     "primaryCta": "Solicitar diagnóstico empresarial",
     "secondaryCta": "Explorar servicios de la plataforma",
     "stats": [
@@ -53,8 +53,8 @@
   },
   "Services": {
     "eyebrow": "Servicios",
-    "title": "Una plataforma técnica de crecimiento para operadores de comercio regulado.",
-    "copy": "3C Waypoint convierte la experiencia aduanera compleja en autoridad comercial visible y duradera en búsqueda, contenido, presencia ejecutiva y puntos de adquisición de importadores.",
+    "title": "Tú dominas el comercio regulado. Nosotros hacemos que el mercado lo vea.",
+    "copy": "Los agentes aduaneros, freight forwarders y NVOCCs pierden negocios no por falta de competencia técnica, sino porque el mercado no puede ver esa competencia. 3C Waypoint construye la infraestructura que cambia eso.",
     "items": [
       {
         "title": "Infraestructura de Autoridad en Búsqueda",
@@ -83,15 +83,15 @@
     "title": "Posicionamiento que respeta la complejidad del comercio de EE. UU.",
     "copy": "Los compradores de servicios de customs brokerage no responden a lenguaje genérico de marketing. Evalúan precisión, lectura de riesgo, competencia jurisdiccional y claridad para explicar movimiento regulado.",
     "points": [
-      "Creado para agentes aduanales, freight forwarders, NVOCCs y firmas de cumplimiento comercial de EE. UU.",
-      "Estructurado alrededor del comportamiento de búsqueda regulada, preguntas de riesgo de importadores y evaluación impulsada por cumplimiento.",
-      "Diseñado para sostener páginas de autoridad de largo plazo, bibliotecas de contenido técnico y posicionamiento listo para ventas.",
-      "Opera como infraestructura estratégica de marketing, no como campaña de agencia generalista."
+      "Los importadores que buscan compliance te encuentran primero — no a tu competencia.",
+      "Tu pipeline comienza a llegar precalificado, sin el ciclo de educación que consume el tiempo de tu equipo comercial.",
+      "Tu autoridad técnica sostiene renovaciones, referidos y expansión hacia nuevos segmentos regulados.",
+      "Dejas de competir por precio porque el mercado ya percibe la profundidad de tu operación."
     ],
     "metrics": [
-      { "value": "7", "label": "Líneas prioritarias de autoridad SEO" },
-      { "value": "4", "label": "Segmentos de operadores de comercio regulado" },
-      { "value": "1", "label": "Plataforma empresarial especializada" }
+      { "value": "+90 días", "label": "Para establecer autoridad de búsqueda en tu nicho regulatorio" },
+      { "value": "1 vertical", "label": "El único mercado que servimos: comercio exterior en EE.UU." },
+      { "value": "0 genérico", "label": "Ninguna campaña nuestra podría pertenecer a otra industria" }
     ]
   },
   "TradeIntelligence": {
@@ -101,10 +101,10 @@
     "panelTitle": "Capa de inteligencia",
     "partner": "Strategic Trade Intelligence Partner",
     "signals": [
-      "Mapeo de commodities y temas de cumplimiento",
-      "Clasificación de intención de búsqueda de importadores",
-      "Arquitectura de contenido sobre regulación comercial de EE. UU.",
-      "Posicionamiento de mercado para brokers y forwarders"
+      "Qué términos de compliance busca tu importador objetivo en el momento de la duda",
+      "Qué diferencia a un importador listo para contratar de uno que aún está comparando precios",
+      "Qué páginas de regulación estadounidense generan confianza antes del primer contacto comercial",
+      "Cómo los brokers líderes se posicionan para capturar demanda antes de que la competencia vea la oportunidad"
     ]
   },
   "RadarTheory": {
@@ -114,19 +114,19 @@
     "quadrants": [
       {
         "label": "DETECTAR",
-        "description": "Inteligencia de mercado. Cambios arancelarios, modificaciones regulatorias, señales de dolor del importador."
+        "description": "Identificamos dónde buscan los importadores lo que ofreces — antes de que sepan que existes."
       },
       {
         "label": "CALIBRAR",
-        "description": "Afine su propuesta de valor frente a la señal detectada."
+        "description": "Ajustamos tu mensaje para el momento exacto de la decisión del comprador regulado."
       },
       {
         "label": "POSICIONAR",
-        "description": "Construya arquitectura de marca, voz y pruebas que ganan la ronda de confianza."
+        "description": "Construimos la presencia que hace que tu empresa sea la respuesta correcta — no una de las opciones."
       },
       {
         "label": "RESPONDER",
-        "description": "Publique contenido, campañas y habilitación de ventas que conviertan señales en pipeline."
+        "description": "Ejecutamos contenido y campañas calibradas para el ciclo de compra de 90 a 180 días del comercio exterior."
       }
     ]
   },
