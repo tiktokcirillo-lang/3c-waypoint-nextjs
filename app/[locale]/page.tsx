@@ -1,4 +1,5 @@
 import { setRequestLocale } from "next-intl/server";
+import { OrganizationJsonLd } from "../../components/JsonLd";
 import Authority from "../../components/Authority";
 import Hero from '@/components/hero';
 import Footer from "../../components/Footer";
@@ -18,6 +19,7 @@ export default async function HomePage({ params }: Props) {
 
   return (
     <>
+      <OrganizationJsonLd />
       <Navbar />
       <main className="overflow-hidden">
         <Hero />

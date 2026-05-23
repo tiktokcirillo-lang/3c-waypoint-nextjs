@@ -1,0 +1,56 @@
+const BASE_URL = 'https://3c-waypoint-nextjs.vercel.app'
+
+export function OrganizationJsonLd() {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: '3C Waypoint',
+    url: BASE_URL,
+    logo: `${BASE_URL}/logo.png`,
+    description:
+      'Enterprise marketing infrastructure for U.S. customs brokers, freight forwarders, NVOCCs, and trade compliance firms.',
+    address: {
+      '@type': 'PostalAddress',
+      addressCountry: 'US',
+      addressRegion: 'UT',
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'customer support',
+      email: 'info@3cmediamktg.com',
+    },
+    sameAs: [],
+  }
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  )
+}
+
+interface BreadcrumbItem {
+  name: string
+  href: string
+}
+
+export function BreadcrumbJsonLd({ items }: { items: BreadcrumbItem[] }) {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: `${BASE_URL}${item.href}`,
+    })),
+  }
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  )
+}

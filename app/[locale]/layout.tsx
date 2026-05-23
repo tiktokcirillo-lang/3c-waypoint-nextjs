@@ -7,6 +7,16 @@ import { routing, type Locale } from "../../i18n/routing";
 import SmoothScroll from "../../components/SmoothScroll";
 import CustomCursor from "../../components/CustomCursor";
 
+const BASE_URL = 'https://3c-waypoint-nextjs.vercel.app'
+
+// Maps route locale code → BCP-47 tag used in hreflang / html[lang] / og:locale
+const localeMeta: Record<Locale, { lang: string; ogLocale: string }> = {
+  en:    { lang: 'en-US', ogLocale: 'en_US' },
+  'pt-br': { lang: 'pt-BR', ogLocale: 'pt_BR' },
+  es:    { lang: 'es-ES', ogLocale: 'es_ES' },
+  zh:    { lang: 'zh-CN', ogLocale: 'zh_CN' },
+}
+
 type Props = {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
@@ -23,26 +33,62 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     notFound();
   }
 
+  const l = locale as Locale
   const t = await getTranslations({ locale, namespace: "Metadata" });
+  const { ogLocale } = localeMeta[l]
+  const canonical = `${BASE_URL}/${locale}`
+
+  const languageAlternates: Record<string, string> = Object.fromEntries(
+    routing.locales.map((loc) => [localeMeta[loc as Locale].lang, `${BASE_URL}/${loc}`])
+  )
+  languageAlternates['x-default'] = `${BASE_URL}/en`
 
   return {
-    title: t("title"),
+    metadataBase: new URL(BASE_URL),
+    title: {
+      default: t("title"),
+      template: `%s | 3C Waypoint`,
+    },
     description: t("description"),
     alternates: {
-      canonical: `/${locale}`,
-      languages: Object.fromEntries(
-        routing.locales.map((availableLocale) => [
-          availableLocale,
-          `/${availableLocale}`
-        ])
-      )
+      canonical,
+      languages: languageAlternates,
     },
     openGraph: {
+      type: 'website',
+      url: canonical,
+      siteName: '3C Waypoint',
       title: t("title"),
       description: t("description"),
-      type: "website",
-      locale
-    }
+      locale: ogLocale,
+      alternateLocale: routing.locales
+        .filter((loc) => loc !== l)
+        .map((loc) => localeMeta[loc as Locale].ogLocale),
+      images: [
+        {
+          url: '/og-image.jpg',
+          width: 1200,
+          height: 630,
+          alt: '3C Waypoint',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t("title"),
+      description: t("description"),
+      images: ['/og-image.jpg'],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
   };
 }
 
@@ -55,8 +101,10 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   setRequestLocale(locale);
 
+  const { lang } = localeMeta[locale as Locale]
+
   return (
-    <html lang={locale}>
+    <html lang={lang} suppressHydrationWarning>
       <body>
         <NextIntlClientProvider>
           <CustomCursor />
