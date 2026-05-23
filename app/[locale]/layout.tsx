@@ -89,6 +89,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         'max-snippet': -1,
       },
     },
+    verification: {
+      google: '349a9e11a7add2aa',
+    },
   };
 }
 
