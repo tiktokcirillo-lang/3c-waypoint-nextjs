@@ -137,6 +137,32 @@
     "button": "Schedule strategy call",
     "email": "mailto:info@3cmediamktg.com"
   },
+  "Contact": {
+    "eyebrow": "Enterprise Diagnostic",
+    "title": "Start the conversation.",
+    "copy": "Tell us about your trade compliance operation. We'll map the authority gaps and show you exactly where importers aren't finding you.",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "company": "Company",
+      "companyPlaceholder": "Company name",
+      "role": "Role",
+      "rolePlaceholder": "Your role",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "phone": "Phone",
+      "phonePlaceholder": "+1 (000) 000-0000",
+      "challenge": "What is your biggest visibility challenge today?",
+      "challengePlaceholder": "Describe the gaps you're experiencing...",
+      "submit": "Send message",
+      "submitting": "Sending..."
+    },
+    "success": {
+      "title": "Message sent.",
+      "copy": "We'll review your challenge and respond within one business day."
+    },
+    "error": "Something went wrong. Please try again."
+  },
   "Footer": {
     "copy": "Premium B2B marketing infrastructure for U.S. customs brokers, freight forwarders, NVOCCs, and trade compliance firms.",
     "partner": "The radar that detects your next importer before your competitor does."

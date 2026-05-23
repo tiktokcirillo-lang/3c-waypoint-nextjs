@@ -137,6 +137,32 @@
     "button": "预约战略沟通",
     "email": "mailto:info@3cmediamktg.com"
   },
+  "Contact": {
+    "eyebrow": "企业级诊断",
+    "title": "开启对话。",
+    "copy": "告诉我们您的贸易合规业务情况。我们将绘制权威缺口地图，准确展示进口商在哪里找不到您。",
+    "form": {
+      "name": "姓名",
+      "namePlaceholder": "您的姓名",
+      "company": "公司",
+      "companyPlaceholder": "公司名称",
+      "role": "职位",
+      "rolePlaceholder": "您的职位",
+      "email": "电子邮件",
+      "emailPlaceholder": "your@email.com",
+      "phone": "电话",
+      "phonePlaceholder": "+86 000 0000 0000",
+      "challenge": "您今天面临的最大可见性挑战是什么？",
+      "challengePlaceholder": "描述您正在经历的差距...",
+      "submit": "发送消息",
+      "submitting": "发送中..."
+    },
+    "success": {
+      "title": "消息已发送。",
+      "copy": "我们将审查您的挑战并在一个工作日内回复。"
+    },
+    "error": "出现了问题。请重试。"
+  },
   "Footer": {
     "copy": "面向美国报关行、货运代理、NVOCC 和贸易合规公司的高端 B2B 营销基础设施。",
     "partner": "在您的竞争对手之前，发现您下一个进口商的雷达。"

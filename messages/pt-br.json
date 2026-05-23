@@ -137,6 +137,32 @@
     "button": "Agendar conversa estratégica",
     "email": "mailto:info@3cmediamktg.com"
   },
+  "Contact": {
+    "eyebrow": "Diagnóstico Enterprise",
+    "title": "Inicie a conversa.",
+    "copy": "Conte-nos sobre sua operação de compliance aduaneiro. Mapeamos as lacunas de autoridade e mostramos exatamente onde importadores não estão te encontrando.",
+    "form": {
+      "name": "Nome",
+      "namePlaceholder": "Seu nome",
+      "company": "Empresa",
+      "companyPlaceholder": "Nome da empresa",
+      "role": "Cargo",
+      "rolePlaceholder": "Seu cargo",
+      "email": "E-mail",
+      "emailPlaceholder": "seu@email.com",
+      "phone": "Telefone",
+      "phonePlaceholder": "+55 (00) 00000-0000",
+      "challenge": "Qual é o seu maior desafio de visibilidade hoje?",
+      "challengePlaceholder": "Descreva as lacunas que você está enfrentando...",
+      "submit": "Enviar mensagem",
+      "submitting": "Enviando..."
+    },
+    "success": {
+      "title": "Mensagem enviada.",
+      "copy": "Analisaremos seu desafio e responderemos em até um dia útil."
+    },
+    "error": "Algo deu errado. Por favor, tente novamente."
+  },
   "Footer": {
     "copy": "Infraestrutura premium de marketing B2B para despachantes aduaneiros, freight forwarders, NVOCCs e empresas de compliance comercial dos EUA.",
     "partner": "O radar que detecta seu próximo importador antes do seu concorrente."

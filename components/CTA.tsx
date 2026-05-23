@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -66,8 +67,8 @@ export default function CTA() {
           {t("copy")}
         </p>
 
-        <a
-          href={t("email")}
+        <Link
+          href="/contact"
           className="mt-10 inline-flex items-center justify-center text-sm font-semibold text-white transition-colors duration-200 hover:bg-[#155168]"
           style={{
             background: '#1A5F7A',
@@ -76,7 +77,7 @@ export default function CTA() {
           }}
         >
           {t("button")}
-        </a>
+        </Link>
       </motion.div>
     </section>
   );

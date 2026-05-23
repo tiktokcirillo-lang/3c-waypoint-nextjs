@@ -2,9 +2,12 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { Link as LocaleLink } from "@/i18n/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
 import LanguageSwitcher from "./LanguageSwitcher";
+
+const MotionLocaleLink = motion(LocaleLink);
 
 type NavItem = { label: string; href: string };
 
@@ -68,8 +71,8 @@ export default function Navbar() {
 
           {/* Right: CTA + language switcher + hamburger */}
           <div className="flex items-center gap-3">
-            <a
-              href="#contact"
+            <LocaleLink
+              href="/contact"
               className="hidden md:inline-flex items-center px-5 py-2 text-xs font-semibold uppercase transition-colors duration-200 text-cyan border border-teal hover:bg-teal hover:text-ice"
               style={{
                 fontFamily: "var(--font-inter, 'Inter', sans-serif)",
@@ -78,7 +81,7 @@ export default function Navbar() {
               }}
             >
               {t("cta")}
-            </a>
+            </LocaleLink>
 
             <div className="hidden md:block">
               <LanguageSwitcher />
@@ -137,8 +140,8 @@ export default function Navbar() {
               </motion.a>
             ))}
 
-            <motion.a
-              href="#contact"
+            <MotionLocaleLink
+              href="/contact"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: items.length * 0.07, duration: 0.3 }}
@@ -151,7 +154,7 @@ export default function Navbar() {
               }}
             >
               {t("cta")}
-            </motion.a>
+            </MotionLocaleLink>
 
             <div className="mt-2">
               <LanguageSwitcher />
