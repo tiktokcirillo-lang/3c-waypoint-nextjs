@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 import { routing } from '../i18n/routing'
 
-const BASE_URL = 'https://3c-waypoint-nextjs.vercel.app'
+const BASE_URL = 'https://3cwaypoint.com'
 
 const routes = [
   { path: '',         changeFrequency: 'weekly',  priority: 1.0 },

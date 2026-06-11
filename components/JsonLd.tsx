@@ -1,4 +1,4 @@
-const BASE_URL = 'https://3c-waypoint-nextjs.vercel.app'
+const BASE_URL = 'https://3cwaypoint.com'
 
 export function OrganizationJsonLd() {
   const schema = {

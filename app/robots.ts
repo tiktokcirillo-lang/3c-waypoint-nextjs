@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next'
 
-const BASE_URL = 'https://3c-waypoint-nextjs.vercel.app'
+const BASE_URL = 'https://3cwaypoint.com'
 
 export default function robots(): MetadataRoute.Robots {
   return {

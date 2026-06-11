@@ -7,7 +7,7 @@ import { routing, type Locale } from "../../i18n/routing";
 import SmoothScroll from "../../components/SmoothScroll";
 import CustomCursor from "../../components/CustomCursor";
 
-const BASE_URL = 'https://3c-waypoint-nextjs.vercel.app'
+const BASE_URL = 'https://3cwaypoint.com'
 
 // Maps route locale code → BCP-47 tag used in hreflang / html[lang] / og:locale
 const localeMeta: Record<Locale, { lang: string; ogLocale: string }> = {
