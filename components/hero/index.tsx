@@ -33,9 +33,9 @@ export default function Hero() {
       /*
        * Cinematic scroll sequence — Active Theory–style:
        *
-       * 0% → 100% scroll progress across a pinned 220vh wrapper:
+       * 0% → 100% scroll progress across a pinned wrapper:
        *   • Globe: scale 1→1.25, drifts right, opacity 1→0
-       *   • Text block: drifts up and fades, slight scale-down
+       *   • Text block: holds still for the first 25%, then lifts and dissolves
        *   • Grid overlay: fades out early
        *   • Ambient gradient: intensifies at mid-scroll
        */
@@ -59,12 +59,12 @@ export default function Hero() {
         ease:    'none',
       }, 0)
 
-      // Text: lifts and dissolves
+      // Text: holds still until 25% scrub progress, then lifts and dissolves
       tl.to(textRef.current, {
         yPercent: -12,
         opacity:  0,
         ease:     'none',
-      }, 0)
+      }, 0.25)
 
       // Decorative grid: out early
       tl.to(gridRef.current, {
