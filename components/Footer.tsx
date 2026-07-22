@@ -15,7 +15,7 @@ export default function Footer() {
   const social = [
     { label: footer("social.websiteLabel"), value: footer("social.website"), href: "https://3cwaypoint.com" },
     { label: footer("social.instagramLabel"), value: footer("social.instagram"), href: "https://instagram.com/3cwaypoint" },
-    { label: footer("social.linkedinLabel"), value: footer("social.linkedin"), href: "https://linkedin.com/in/3cwaypoint" },
+    { label: footer("social.linkedinLabel"), value: footer("social.linkedin"), href: "https://www.linkedin.com/company/3cwaypoint" },
     { label: footer("social.emailLabel"), value: footer("social.email"), href: `mailto:${footer("social.email")}` },
   ];
 
