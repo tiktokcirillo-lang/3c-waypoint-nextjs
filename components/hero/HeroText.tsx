@@ -81,16 +81,16 @@ export default function HeroText() {
 
         {/* ── Headline ── */}
         <div className="flex flex-col gap-[0.06em] mb-10 md:mb-14">
-          <MaskedLine index={0} className="font-['Barlow_Condensed'] text-[min(8.5vh,7.5vw,7rem)] font-black uppercase tracking-[-0.025em] text-white">
+          <MaskedLine index={0} className="font-['Barlow_Condensed'] text-[clamp(2.6rem,7.5vw,8.5rem)] [@media(max-height:800px)]:text-[clamp(2rem,5.5vh,5rem)] font-black uppercase tracking-[-0.025em] text-white">
             {t('headline.line1')}
           </MaskedLine>
-          <MaskedLine index={1} className="font-['Barlow_Condensed'] text-[min(8.5vh,7.5vw,7rem)] font-black uppercase tracking-[-0.025em] text-[#7ECECA]">
+          <MaskedLine index={1} className="font-['Barlow_Condensed'] text-[clamp(2.6rem,7.5vw,8.5rem)] [@media(max-height:800px)]:text-[clamp(2rem,5.5vh,5rem)] font-black uppercase tracking-[-0.025em] text-[#7ECECA]">
             {t('headline.line2')}
           </MaskedLine>
-          <MaskedLine index={2} className="font-['Barlow_Condensed'] text-[min(8.5vh,7.5vw,7rem)] font-black uppercase tracking-[-0.025em] text-white">
+          <MaskedLine index={2} className="font-['Barlow_Condensed'] text-[clamp(2.6rem,7.5vw,8.5rem)] [@media(max-height:800px)]:text-[clamp(2rem,5.5vh,5rem)] font-black uppercase tracking-[-0.025em] text-white">
             {t('headline.line3')}
           </MaskedLine>
-          <MaskedLine index={3} className="font-['Barlow_Condensed'] text-[min(8.5vh,7.5vw,7rem)] font-black uppercase tracking-[-0.025em] text-white/30">
+          <MaskedLine index={3} className="font-['Barlow_Condensed'] text-[clamp(2.6rem,7.5vw,8.5rem)] [@media(max-height:800px)]:text-[clamp(2rem,5.5vh,5rem)] font-black uppercase tracking-[-0.025em] text-white/30">
             {t('headline.line4')}
           </MaskedLine>
         </div>
