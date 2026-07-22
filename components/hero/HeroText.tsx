@@ -81,16 +81,16 @@ export default function HeroText() {
 
         {/* ── Headline ── */}
         <div className="flex flex-col gap-[0.06em] mb-10 md:mb-14">
-          <MaskedLine index={0} className="font-['Barlow_Condensed'] text-[clamp(3.6rem,9vw,10rem)] font-black uppercase tracking-[-0.025em] text-white">
+          <MaskedLine index={0} className="font-['Barlow_Condensed'] text-[clamp(2rem,7vh,5.5rem)] font-black uppercase tracking-[-0.025em] text-white">
             {t('headline.line1')}
           </MaskedLine>
-          <MaskedLine index={1} className="font-['Barlow_Condensed'] text-[clamp(3.6rem,9vw,10rem)] font-black uppercase tracking-[-0.025em] text-[#7ECECA]">
+          <MaskedLine index={1} className="font-['Barlow_Condensed'] text-[clamp(2rem,7vh,5.5rem)] font-black uppercase tracking-[-0.025em] text-[#7ECECA]">
             {t('headline.line2')}
           </MaskedLine>
-          <MaskedLine index={2} className="font-['Barlow_Condensed'] text-[clamp(3.6rem,9vw,10rem)] font-black uppercase tracking-[-0.025em] text-white">
+          <MaskedLine index={2} className="font-['Barlow_Condensed'] text-[clamp(2rem,7vh,5.5rem)] font-black uppercase tracking-[-0.025em] text-white">
             {t('headline.line3')}
           </MaskedLine>
-          <MaskedLine index={3} className="font-['Barlow_Condensed'] text-[clamp(3.6rem,9vw,10rem)] font-black uppercase tracking-[-0.025em] text-white/30">
+          <MaskedLine index={3} className="font-['Barlow_Condensed'] text-[clamp(2rem,7vh,5.5rem)] font-black uppercase tracking-[-0.025em] text-white/30">
             {t('headline.line4')}
           </MaskedLine>
         </div>

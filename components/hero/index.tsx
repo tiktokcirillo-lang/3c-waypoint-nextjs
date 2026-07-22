@@ -59,12 +59,13 @@ export default function Hero() {
         ease:    'none',
       }, 0)
 
-      // Text: holds still until 25% scrub progress, then lifts and dissolves
+      // Text: holds still until 60% scrub progress, then dissolves fast
       tl.to(textRef.current, {
         yPercent: -12,
         opacity:  0,
         ease:     'none',
-      }, 0.25)
+        duration: 0.3,
+      }, 0.6)
 
       // Decorative grid: out early
       tl.to(gridRef.current, {
