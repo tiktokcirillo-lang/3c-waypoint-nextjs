@@ -144,10 +144,17 @@ export default function Hero() {
           aria-hidden
         />
 
-        {/* ── Left edge vignette — keeps type legible over globe bleed ── */}
+        {/* ── Left edge vignette — reforçada pro headline menor precisar de menos texto pra ter contraste ── */}
         <div
-          className="absolute top-0 left-0 bottom-0 w-[45%] pointer-events-none"
-          style={{ background: 'linear-gradient(to right, rgba(10,14,16,0.55) 0%, transparent 100%)' }}
+          className="absolute top-0 left-0 bottom-0 w-[58%] pointer-events-none"
+          style={{ background: 'linear-gradient(to right, rgba(10,14,16,0.72) 0%, rgba(10,14,16,0.32) 60%, transparent 100%)' }}
+          aria-hidden
+        />
+
+        {/* ── Top edge vignette — contraste extra contra brilhos do globo durante a rotação ── */}
+        <div
+          className="absolute top-0 left-0 right-0 h-[35%] pointer-events-none"
+          style={{ background: 'linear-gradient(to bottom, rgba(10,14,16,0.5) 0%, transparent 100%)' }}
           aria-hidden
         />
 

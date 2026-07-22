@@ -79,13 +79,13 @@ export default function HeroText() {
           </span>
         </motion.div>
 
-        {/* ── Headline — 2 linhas combinadas, mesmo font-size, ocupando a largura real ── */}
+        {/* ── Headline — contido (não força edge-to-edge), contraste via text-shadow ── */}
         <div className="flex flex-col gap-[0.06em] mb-6 md:mb-9">
-          <MaskedLine index={0} className="font-['Barlow_Condensed'] text-[clamp(3.5rem,10vw,9rem)] font-black uppercase tracking-[-0.045em]">
+          <MaskedLine index={0} className="font-['Barlow_Condensed'] text-[clamp(2.75rem,6.5vw,6rem)] font-black uppercase tracking-[-0.045em] [text-shadow:0_16px_50px_rgba(0,0,0,0.6),0_2px_12px_rgba(0,0,0,0.5)]">
             <span className="text-white">{t('headline.line1')}</span>{' '}
             <span className="text-[#7ECECA]">{t('headline.line2')}</span>
           </MaskedLine>
-          <MaskedLine index={1} className="font-['Barlow_Condensed'] text-[clamp(3.5rem,10vw,9rem)] font-black uppercase tracking-[-0.045em]">
+          <MaskedLine index={1} className="font-['Barlow_Condensed'] text-[clamp(2.75rem,6.5vw,6rem)] font-black uppercase tracking-[-0.045em] [text-shadow:0_16px_50px_rgba(0,0,0,0.6),0_2px_12px_rgba(0,0,0,0.5)]">
             <span className="text-white">{t('headline.line3')}</span>{' '}
             <span className="font-serif italic font-normal tracking-normal text-[#7ECECA]">
               {t('headline.line4')}
@@ -101,7 +101,7 @@ export default function HeroText() {
           animate="visible"
           className="flex flex-col sm:flex-row items-start sm:items-center gap-8"
         >
-          <p className="font-['Inter'] text-sm leading-[1.7] text-white/45 max-w-[320px]">
+          <p className="font-['Inter'] text-sm leading-[1.7] text-white/45 max-w-[320px] [text-shadow:0_4px_16px_rgba(0,0,0,0.5)]">
             {t('copy')}
           </p>
 
