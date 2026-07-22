@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 
@@ -41,16 +42,47 @@ function MaskedLine({
   index: number
   className?: string
 }) {
+  const innerRef   = useRef<HTMLSpanElement>(null)
+  const wrapperRef = useRef<HTMLDivElement>(null)
+  const [scaleX, setScaleX] = useState(1)
+
+  useEffect(() => {
+    const measure = () => {
+      if (innerRef.current && wrapperRef.current) {
+        const textWidth      = innerRef.current.scrollWidth
+        const containerWidth = wrapperRef.current.offsetWidth
+        if (textWidth > 0 && containerWidth > 0) {
+          // Cap em 1.6x pra não distorcer demais linhas curtas como "O MUNDO"
+          setScaleX(Math.min(containerWidth / textWidth, 1.6))
+        }
+      }
+    }
+    // Espera a fonte custom carregar — medir com a fonte de fallback
+    // dá scrollWidth errado e cada linha estica um valor diferente.
+    document.fonts.ready.then(measure)
+    window.addEventListener('resize', measure)
+    return () => window.removeEventListener('resize', measure)
+  }, [])
+
   return (
-    <div className="overflow-hidden leading-none">
+    <div ref={wrapperRef} className="overflow-hidden leading-none">
       <motion.div
         custom={index}
         variants={REVEAL}
         initial="hidden"
         animate="visible"
-        className={className}
       >
-        {children}
+        <span
+          ref={innerRef}
+          className={className}
+          style={{
+            display: 'inline-block',
+            transform: `scaleX(${scaleX})`,
+            transformOrigin: 'left',
+          }}
+        >
+          {children}
+        </span>
       </motion.div>
     </div>
   )
@@ -80,7 +112,8 @@ export default function HeroText() {
         </motion.div>
 
         {/* ── Headline ── */}
-        <div className="flex flex-col gap-[0.06em] mb-6 md:mb-9">
+        {/* max-w caps how far scaleX can stretch each line — full column width (1248px) would let lines cross into the globe */}
+        <div className="flex flex-col gap-[0.06em] mb-6 md:mb-9 max-w-[700px]">
           <MaskedLine index={0} className="font-['Barlow_Condensed'] text-[clamp(3.5rem,13vw,10rem)] font-black uppercase tracking-[-0.025em] text-white">
             {t('headline.line1')}
           </MaskedLine>
