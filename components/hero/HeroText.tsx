@@ -42,49 +42,82 @@ function MaskedLine({
   index: number
   className?: string
 }) {
-  const innerRef   = useRef<HTMLSpanElement>(null)
-  const wrapperRef = useRef<HTMLDivElement>(null)
-  const [scaleX, setScaleX] = useState(1)
-
-  useEffect(() => {
-    const measure = () => {
-      if (innerRef.current && wrapperRef.current) {
-        const textWidth      = innerRef.current.scrollWidth
-        const containerWidth = wrapperRef.current.offsetWidth
-        if (textWidth > 0 && containerWidth > 0) {
-          // Cap em 1.6x pra não distorcer demais linhas curtas como "O MUNDO"
-          setScaleX(Math.min(containerWidth / textWidth, 1.6))
-        }
-      }
-    }
-    // Espera a fonte custom carregar — medir com a fonte de fallback
-    // dá scrollWidth errado e cada linha estica um valor diferente.
-    document.fonts.ready.then(measure)
-    window.addEventListener('resize', measure)
-    return () => window.removeEventListener('resize', measure)
-  }, [])
-
   return (
-    <div ref={wrapperRef} className="overflow-hidden leading-none">
+    <div className="overflow-hidden leading-none">
       <motion.div
         custom={index}
         variants={REVEAL}
         initial="hidden"
         animate="visible"
+        className={className}
       >
-        <span
-          ref={innerRef}
-          className={className}
-          style={{
-            display: 'inline-block',
-            transform: `scaleX(${scaleX})`,
-            transformOrigin: 'left',
-          }}
-        >
-          {children}
-        </span>
+        {children}
       </motion.div>
     </div>
+  )
+}
+
+// ─── AutoFitHeadline — calcula o maior font-size que cabe em largura E altura ──
+
+function AutoFitHeadline({
+  lines,
+  containerRef,
+}: {
+  lines: { text: string; className: string }[]
+  containerRef: React.RefObject<HTMLDivElement | null>
+}) {
+  const [fontSize, setFontSize] = useState(140) // fallback inicial em px
+
+  useEffect(() => {
+    const canvas = document.createElement('canvas')
+    const ctx = canvas.getContext('2d')
+
+    const compute = () => {
+      if (!ctx || !containerRef.current) return
+
+      const containerWidth  = containerRef.current.offsetWidth
+      const containerHeight = containerRef.current.offsetHeight
+      const numLines = lines.length
+      const lineHeightMultiplier = 0.92 // bate com leading-none / gap-[0.06em]
+
+      // Mede a linha mais larga numa referência de 100px
+      const REF = 100
+      ctx.font = `900 ${REF}px 'Barlow Condensed'`
+      const widestRatio = Math.max(
+        ...lines.map((l) => ctx.measureText(l.text.toUpperCase()).width / REF)
+      )
+
+      const sizeByWidth  = containerWidth / widestRatio
+      const sizeByHeight = containerHeight / (numLines * lineHeightMultiplier)
+
+      // Usa o menor dos dois, com uma margem de segurança de 4%
+      const finalSize = Math.min(sizeByWidth, sizeByHeight) * 0.96
+
+      // Trava entre um piso e um teto razoáveis
+      setFontSize(Math.max(32, Math.min(finalSize, 200)))
+    }
+
+    // Espera a fonte custom carregar — medir com a fonte de fallback do
+    // canvas dá widestRatio errado (mesma corrida do round anterior).
+    document.fonts.ready.then(compute)
+    const ro = new ResizeObserver(compute)
+    if (containerRef.current) ro.observe(containerRef.current)
+    window.addEventListener('resize', compute)
+
+    return () => {
+      ro.disconnect()
+      window.removeEventListener('resize', compute)
+    }
+  }, [lines, containerRef])
+
+  return (
+    <>
+      {lines.map((line, i) => (
+        <MaskedLine key={i} index={i} className={line.className}>
+          <span style={{ fontSize: `${fontSize}px` }}>{line.text}</span>
+        </MaskedLine>
+      ))}
+    </>
   )
 }
 
@@ -92,6 +125,7 @@ function MaskedLine({
 
 export default function HeroText() {
   const t = useTranslations('Hero')
+  const headlineRef = useRef<HTMLDivElement>(null)
 
   return (
     <div className="relative z-10 w-full h-full flex items-start">
@@ -111,21 +145,18 @@ export default function HeroText() {
           </span>
         </motion.div>
 
-        {/* ── Headline ── */}
-        {/* max-w caps how far scaleX can stretch each line — full column width (1248px) would let lines cross into the globe */}
-        <div className="flex flex-col gap-[0.06em] mb-6 md:mb-9 max-w-[700px]">
-          <MaskedLine index={0} className="font-['Barlow_Condensed'] text-[clamp(3.5rem,13vw,10rem)] font-black uppercase tracking-[-0.025em] text-white">
-            {t('headline.line1')}
-          </MaskedLine>
-          <MaskedLine index={1} className="font-['Barlow_Condensed'] text-[clamp(3.5rem,13vw,10rem)] font-black uppercase tracking-[-0.025em] text-[#7ECECA]">
-            {t('headline.line2')}
-          </MaskedLine>
-          <MaskedLine index={2} className="font-['Barlow_Condensed'] text-[clamp(3.5rem,13vw,10rem)] font-black uppercase tracking-[-0.025em] text-white">
-            {t('headline.line3')}
-          </MaskedLine>
-          <MaskedLine index={3} className="font-['Barlow_Condensed'] text-[clamp(3.5rem,13vw,10rem)] font-black uppercase tracking-[-0.025em] text-white/30">
-            {t('headline.line4')}
-          </MaskedLine>
+        {/* ── Headline — tamanho calculado dinamicamente pra preencher largura e altura ── */}
+        {/* budget de altura fica acima do topo do bloco de parágrafo/CTA (que é absolute, fixo embaixo) — nunca deve encostar nele */}
+        <div ref={headlineRef} className="flex flex-col gap-[0.06em] mb-6 md:mb-9 h-[52vh] max-h-[500px]">
+          <AutoFitHeadline
+            containerRef={headlineRef}
+            lines={[
+              { text: t('headline.line1'), className: "font-['Barlow_Condensed'] font-black uppercase tracking-[-0.025em] text-white" },
+              { text: t('headline.line2'), className: "font-['Barlow_Condensed'] font-black uppercase tracking-[-0.025em] text-[#7ECECA]" },
+              { text: t('headline.line3'), className: "font-['Barlow_Condensed'] font-black uppercase tracking-[-0.025em] text-white" },
+              { text: t('headline.line4'), className: "font-['Barlow_Condensed'] font-black uppercase tracking-[-0.025em] text-white/30" },
+            ]}
+          />
         </div>
 
       </div>
