@@ -8,7 +8,7 @@ export function OrganizationJsonLd() {
     url: BASE_URL,
     logo: `${BASE_URL}/logo.png`,
     description:
-      'Enterprise marketing infrastructure for U.S. customs brokers, freight forwarders, NVOCCs, and trade compliance firms.',
+      'The marketing agency built inside the foreign trade world — for U.S. customs brokers, freight forwarders, trading companies, trade-tech and trade consultants.',
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'US',

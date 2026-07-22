@@ -1,7 +1,7 @@
 {
   "Metadata": {
-    "title": "3C Waypoint | Marketing Infrastructure for Customs Brokers",
-    "description": "Enterprise marketing infrastructure for U.S. customs brokers, freight forwarders, NVOCCs, and trade compliance firms."
+    "title": "3C Waypoint | Marketing for Foreign Trade",
+    "description": "The marketing agency built inside the foreign trade world — for U.S. customs brokers, freight forwarders, trading companies, trade-tech and trade consultants."
   },
   "Locale": {
     "label": "Language",
@@ -12,135 +12,213 @@
   },
   "Navbar": {
     "homeAria": "3C Waypoint home",
-    "cta": "Request diagnostic",
+    "cta": "Put me on the radar",
     "items": [
-      { "label": "Services", "href": "#services" },
-      { "label": "Authority", "href": "#authority" },
-      { "label": "Trade Intelligence", "href": "#trade-intelligence" },
+      { "label": "Method", "href": "#method" },
+      { "label": "Who It's For", "href": "#personas" },
+      { "label": "Why Us", "href": "#why-us" },
       { "label": "Contact", "href": "#contact" }
     ]
   },
   "Hero": {
-    "eyebrow": "STRATEGIC TRADE INTELLIGENCE PARTNER · NCBFAA · AAEI · TPM",
+    "eyebrow": "MARKETING · FOREIGN TRADE",
     "headline": {
-      "line1": "You know your",
-      "line2": "HTSUS codes.",
-      "line3": "Your next client",
-      "line4": "doesn't know your name."
+      "line1": "MARKETING",
+      "line2": "FOR THE PEOPLE",
+      "line3": "WHO MOVE",
+      "line4": "THE WORLD"
     },
-    "copy": "We turn your customs expertise into authority that importers find before they call your competitor.",
-    "primaryCta": "Request enterprise diagnostic",
-    "secondaryCta": "Explore platform services",
-    "stats": [
-      { "value": "HTSUS", "label": "Search authority" },
-      { "value": "CBP", "label": "Compliance language" },
-      { "value": "U.S.", "label": "Broker market focus" }
-    ],
-    "dashboardAria": "Animated trade intelligence command surface",
-    "dashboard": {
-      "title": "TRADE AUTHORITY ENGINE",
-      "signalMap": "LIVE SIGNAL MAP",
-      "signals": [
-        "HTSUS authority cluster",
-        "Importer intent corridor",
-        "Compliance topic velocity"
-      ],
-      "marketLabel": "Market",
-      "marketValue": "U.S. Importers",
-      "partnerLabel": "Partner layer",
-      "partnerValue": "Strategic Trade Intelligence Partner"
-    }
+    "copy": "The marketing agency with a foreign-trade DNA. You keep global supply chains moving. We make sure the market can see it.",
+    "primaryCta": "Put my brand on the radar",
+    "secondaryCta": "See the Radar Method",
+    "marquee": ["Identity", "Client", "Presence", "Reputation", "Global Vision", "Strategy", "Trust", "Movement"]
   },
-  "Services": {
-    "eyebrow": "Services",
-    "title": "You master regulated trade. We make the market see it.",
-    "copy": "Customs brokers, freight forwarders, and NVOCCs lose business not from lack of technical expertise — but because the market can't see that expertise. 3C Waypoint builds the infrastructure that changes that.",
+  "Problem": {
+    "eyebrow": "The Problem",
+    "title": "Trade has a product. It's missing a brand.",
     "items": [
       {
-        "title": "Search Authority Infrastructure",
-        "description": "Technical SEO programs for HTSUS, UFLPA, ISF, AD/CVD, drawback, FTZ, and broker-specific acquisition pages. We build the content your buyers find when they search for compliance answers.",
-        "signal": "01"
+        "number": "01",
+        "title": "Digital invisibility",
+        "description": "Excellent trade companies that nobody can find on Google. No social presence, no authority online — invisible to the importers actively looking for you."
       },
       {
-        "title": "Importer Demand Positioning",
-        "description": "Market narratives, landing pages, and location signals built for importers evaluating customs brokers and forwarding partners. Your firm positioned where the decision begins.",
-        "signal": "02"
+        "number": "02",
+        "title": "Generic messaging",
+        "description": "Marketing that doesn't speak the language of the industry. Copy with zero technical context that convinces no importer, no shipper, no decision-maker."
       },
       {
-        "title": "Executive Credibility Systems",
-        "description": "LinkedIn programs, thought leadership, and technical content operations that make regulated trade expertise visible before procurement begins. We speak comex natively.",
-        "signal": "03"
-      },
-      {
-        "title": "Conversion Diagnostics",
-        "description": "Website, SERP, and message audits that identify where qualified importer intent is leaking from your pipeline. Fixed-fee diagnostic, time-boxed, actionable.",
-        "signal": "04"
+        "number": "03",
+        "title": "Referral dependency",
+        "description": "Growth is stuck because the entire pipeline comes from referrals. No system, no predictability, no way to scale."
       }
     ]
   },
-  "Authority": {
-    "eyebrow": "Technical Authority",
-    "title": "Positioning that respects the complexity of U.S. trade.",
-    "copy": "Customs brokerage buyers do not respond to generic marketing language. They evaluate precision, risk literacy, jurisdictional competence, and the ability to explain regulated movement clearly.",
-    "points": [
-      "Importers searching for compliance find you first — not your competitor.",
-      "Your pipeline starts arriving pre-qualified, without the education cycle that drains your sales team's time.",
-      "Your technical authority sustains renewals, referrals, and expansion into new regulated segments.",
-      "You stop competing on price because the market already sees the depth of your operation."
+  "Brand": {
+    "eyebrow": "The Brand",
+    "title": "An agency built inside the trade world.",
+    "paragraphs": [
+      "3C WayPoint is the marketing agency specialized in foreign trade. Founded by Sari, a strategist with 10 years in the industry, backed by a full team trained to speak the language of trade — not a generalist agency guessing at your world.",
+      "Here, diagnosis comes before execution. The Radar Method — our proprietary framework — makes sure every project starts with what matters: identity, client, presence and reputation.",
+      "We're not an agency that learned trade. We're trade people who mastered marketing. That inversion changes everything."
     ],
-    "metrics": [
-      { "value": "+90 days", "label": "For established search authority in your regulatory niche" },
-      { "value": "1 vertical", "label": "The only market we serve: foreign trade in the U.S." },
-      { "value": "0 generic", "label": "No campaign we build could belong to another industry" }
+    "highlight": "The only agency that talks HTS classification, ISF filing and storytelling in the same sentence.",
+    "stats": [
+      { "value": "10 years", "label": "In foreign trade" },
+      { "value": "All segments", "label": "Brokers, forwarders, trading, trade-tech, consultants" },
+      { "value": "100%", "label": "Focused on foreign trade" }
     ]
   },
-  "TradeIntelligence": {
-    "eyebrow": "Trade Intelligence",
-    "title": "Strategy informed by how importers search, compare, and de-risk.",
-    "copy": "3C Waypoint connects technical trade topics to commercial discovery: the questions importers search, the compliance pages they trust, and the proof signals they need before reaching out.",
-    "panelTitle": "Intelligence layer",
-    "partner": "Strategic Trade Intelligence Partner",
-    "signals": [
-      "Which compliance terms your target importer searches at the moment of doubt",
-      "What separates an importer ready to hire from one still comparing prices",
-      "Which U.S. regulatory pages build trust before the first commercial contact",
-      "How leading brokers position themselves to capture demand before competitors see the opportunity"
-    ]
-  },
-  "RadarTheory": {
-    "eyebrow": "METHODOLOGY",
-    "title": "The Radar Theory™ — our strategic framework for regulated trade brands.",
-    "copy": "A customs radar detects, tracks, and prioritizes cargo before it reaches the border. A brand radar does the same for commercial opportunity — detecting the buyer's signal before your competitor does. Four quadrants: DETECT · CALIBRATE · POSITION · RESPOND.",
+  "RadarMethod": {
+    "eyebrow": "The Method",
+    "title": "The Radar Method",
+    "copy": "A structured diagnosis built on 4 pillars that brings order to the marketing of any trade company. Every project starts with the diagnosis: Identity before Presence, Client before Reputation.",
     "quadrants": [
+      { "label": "Identity", "description": "Who is your company?" },
+      { "label": "Client", "description": "Who do you need to talk to?" },
+      { "label": "Presence", "description": "Which channels should you be on?" },
+      { "label": "Reputation", "description": "What does the market say about you?" }
+    ]
+  },
+  "PillarsPractice": {
+    "eyebrow": "In Practice",
+    "title": "From diagnosis to execution.",
+    "copy": "Each pillar of the Radar Method translates into concrete deliverables.",
+    "items": [
       {
-        "label": "DETECT",
-        "description": "We identify where importers are searching for what you offer — before they know you exist."
+        "signal": "01",
+        "title": "Identity — Who is your company, really?",
+        "description": "Before you show up for the world, you have to know who you are. We define the essence, the positioning and the narrative that sets your company apart in trade.",
+        "bullets": [
+          "Brand diagnosis and positioning",
+          "Complete visual identity",
+          "Institutional narrative and messaging",
+          "Strategic sales decks"
+        ]
       },
       {
-        "label": "CALIBRATE",
-        "description": "We sharpen your message for the exact moment of the regulated buyer's decision."
+        "signal": "02",
+        "title": "Client — Who does your brand need to talk to?",
+        "description": "There's no effective marketing without clarity on the ideal client. We map your ICP, structure your CRM and build the funnels that generate qualified leads in trade.",
+        "bullets": [
+          "ICP mapping and definition",
+          "CRM setup built for trade workflows",
+          "Funnel strategy and automation",
+          "Lead-capture and qualification consulting"
+        ]
       },
       {
-        "label": "POSITION",
-        "description": "We build the presence that makes your firm the answer — not one of the options."
+        "signal": "03",
+        "title": "Presence — Which channels should your brand be on?",
+        "description": "Presence isn't being everywhere. It's being on the right channels, with the right message, for the right audience. We build the digital presence that creates authority and pulls in demand.",
+        "bullets": [
+          "Social media management with technical, on-industry content",
+          "Copywriting and institutional content",
+          "Website development with SEO",
+          "Paid traffic and inbound marketing"
+        ]
       },
       {
-        "label": "RESPOND",
-        "description": "We execute content and campaigns calibrated to the 90-to-180-day comex buying cycle."
+        "signal": "04",
+        "title": "Reputation — What do people say about your brand?",
+        "description": "Reputation is what happens when you're not in the room. We build authority through video, media relations and a real presence at the industry's events.",
+        "bullets": [
+          "Brand films and documentaries",
+          "High-end podcast production",
+          "Trade show and event coverage",
+          "PR and media relations"
+        ]
+      }
+    ]
+  },
+  "Personas": {
+    "eyebrow": "Who It's For",
+    "title": "Built for the people behind global trade.",
+    "painLabel": "THE PAIN",
+    "goalLabel": "THE GOAL",
+    "pillarsLabel": "PILLARS ENGAGED",
+    "items": [
+      {
+        "number": "01",
+        "name": "Freight Forwarder",
+        "role": "Freight Forwarder / NVOCC",
+        "hook": "Every forwarder sells freight. You need to sell trust.",
+        "pain": "You can't differentiate beyond price, so you lose clients to cheaper competitors — because you never built any brand authority.",
+        "goal": "Generate qualified leads who choose you for value, not for the lowest rate on the quote.",
+        "pillars": "Identity · Client · Presence"
+      },
+      {
+        "number": "02",
+        "name": "Customs Broker",
+        "role": "Licensed Customs Broker (LCB)",
+        "hook": "The best broker in town can be invisible on Google.",
+        "pain": "You live entirely on referrals. With no digital presence, you're invisible to new clients and you can't scale.",
+        "goal": "Build digital authority and a steady pipeline of leads — independent of who refers you.",
+        "pillars": "Identity · Presence · Reputation"
+      },
+      {
+        "number": "03",
+        "name": "Trading & Sourcing Company",
+        "role": "Import / Export · Sourcing",
+        "hook": "Nobody understands what you actually do. And it's costing you deals.",
+        "pain": "Clients confuse a trading company with a plain importer. Your value proposition is complex and your messaging never explains the model.",
+        "goal": "Clear positioning of the business model and attraction of qualified partners and buyers.",
+        "pillars": "Identity · Client · Presence"
+      },
+      {
+        "number": "04",
+        "name": "Trade Tech",
+        "role": "Software · SaaS Platforms for Trade",
+        "hook": "Great product. Messaging that scares off the person who signs the check.",
+        "pain": "Your communication is too technical for managers and finance. Marketing doesn't translate the value for the people who approve the budget.",
+        "goal": "A qualified B2B pipeline and messaging that speaks to decision-makers, not only to analysts.",
+        "pillars": "Client · Identity · Presence"
+      },
+      {
+        "number": "05",
+        "name": "Trade Consultant",
+        "role": "Consultants & Trade Advisors",
+        "hook": "You have 15 years in trade. Your clients still ask for a discount?",
+        "pain": "You underprice because you don't position yourself as a premium expert. The knowledge is there; the perceived authority isn't.",
+        "goal": "Premium positioning, higher-ticket projects and real thought leadership in the industry.",
+        "pillars": "Identity · Reputation · Presence"
+      }
+    ],
+    "closing": {
+      "title": "Is your company here?",
+      "copy": "If you make foreign trade happen behind the scenes, we know how to put you on the market's radar.",
+      "button": "Talk to a specialist"
+    }
+  },
+  "WhyUs": {
+    "eyebrow": "Why 3C Waypoint",
+    "title": "What no one else has.",
+    "copy": "Three things you won't find anywhere else in trade marketing.",
+    "items": [
+      {
+        "title": "A real trade DNA",
+        "description": "The only agency where the brief starts with duty drawback, HTS codes and ACE filings. Our messaging speaks your client's language because it's born inside the industry — not applied from the outside in."
+      },
+      {
+        "title": "A complete, experienced team",
+        "description": "A full team with real experience in content and marketing for foreign trade. Agency structure, specialist delivery, people who actually speak the language of trade."
+      },
+      {
+        "title": "The Radar Method, our exclusive framework",
+        "description": "A proprietary framework with 4 pillars. Structured diagnosis before any execution. Not guesswork — a method that has already transformed brands in trade."
       }
     ]
   },
   "CTA": {
-    "eyebrow": "Enterprise Diagnostic",
-    "title": "Find the authority gaps between your trade expertise and your next importer.",
-    "copy": "Request a focused review of search visibility, regulated-topic positioning, page architecture, and buyer credibility signals.",
-    "button": "Schedule strategy call",
-    "email": "mailto:info@3cmediamktg.com"
+    "eyebrow": "Let's Talk",
+    "title": "Marketing for the people who move the world.",
+    "copy": "Put your trade brand on the market's radar.",
+    "button": "Book a call"
   },
   "Contact": {
-    "eyebrow": "Enterprise Diagnostic",
-    "title": "Start the conversation.",
-    "copy": "Tell us about your trade compliance operation. We'll map the authority gaps and show you exactly where importers aren't finding you.",
+    "eyebrow": "Get In Touch",
+    "title": "Let's get you on the radar.",
+    "copy": "Tell us about your company. We'll show you exactly where the market isn't seeing you yet.",
     "form": {
       "name": "Name",
       "namePlaceholder": "Your name",
@@ -164,7 +242,17 @@
     "error": "Something went wrong. Please try again."
   },
   "Footer": {
-    "copy": "Premium B2B marketing infrastructure for U.S. customs brokers, freight forwarders, NVOCCs, and trade compliance firms.",
-    "partner": "The radar that detects your next importer before your competitor does."
+    "tagline": "Marketing for the people who move the world.",
+    "social": {
+      "websiteLabel": "Website",
+      "website": "3cwaypoint.com",
+      "instagramLabel": "Instagram",
+      "instagram": "@3cwaypoint",
+      "linkedinLabel": "LinkedIn",
+      "linkedin": "in/3cwaypoint",
+      "emailLabel": "Email",
+      "email": "hello@3cwaypoint.com"
+    },
+    "copyright": "3C WayPoint. Marketing for Foreign Trade. All rights reserved."
   }
 }

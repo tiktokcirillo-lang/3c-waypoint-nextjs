@@ -15,13 +15,13 @@ const fadeUp = {
 
 const QUADRANT_COLORS = ['#1A5F7A', '#7ECECA', '#D7B56D', '#A8E6E4'];
 
-export default function RadarTheory() {
-  const t = useTranslations("RadarTheory");
+export default function RadarMethod() {
+  const t = useTranslations("RadarMethod");
   const quadrants = t.raw("quadrants") as Quadrant[];
 
   return (
     <section
-      id="radar-theory"
+      id="method"
       className="px-5 py-28 sm:px-8 lg:px-10"
       style={{ background: '#070A0D' }}
     >

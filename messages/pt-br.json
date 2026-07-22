@@ -1,7 +1,7 @@
 {
   "Metadata": {
-    "title": "3C Waypoint | Infraestrutura de Marketing para Despachantes Aduaneiros",
-    "description": "Infraestrutura de marketing enterprise para despachantes aduaneiros, agentes de carga, NVOCCs e empresas de compliance de comércio exterior nos EUA."
+    "title": "3C Waypoint | Marketing para Comércio Exterior",
+    "description": "A agência de marketing construída dentro do universo do comércio exterior — para despachantes aduaneiros, agentes de carga, trading companies, empresas de trade-tech e consultores de comex."
   },
   "Locale": {
     "label": "Idioma",
@@ -12,135 +12,213 @@
   },
   "Navbar": {
     "homeAria": "Página inicial da 3C Waypoint",
-    "cta": "Solicitar diagnóstico",
+    "cta": "Me coloque no radar",
     "items": [
-      { "label": "Serviços", "href": "#services" },
-      { "label": "Autoridade", "href": "#authority" },
-      { "label": "Inteligência Comercial", "href": "#trade-intelligence" },
+      { "label": "Método", "href": "#method" },
+      { "label": "Para Quem É", "href": "#personas" },
+      { "label": "Por Que Nós", "href": "#why-us" },
       { "label": "Contato", "href": "#contact" }
     ]
   },
   "Hero": {
-    "eyebrow": "PARCEIRO ESTRATÉGICO DE INTELIGÊNCIA COMERCIAL · NCBFAA · AAEI · TPM",
+    "eyebrow": "MARKETING · COMÉRCIO EXTERIOR",
     "headline": {
-      "line1": "Você conhece seus",
-      "line2": "códigos HTSUS.",
-      "line3": "Seu próximo cliente",
-      "line4": "não conhece seu nome."
+      "line1": "MARKETING",
+      "line2": "PARA QUEM",
+      "line3": "MOVIMENTA",
+      "line4": "O MUNDO"
     },
-    "copy": "Transformamos sua expertise aduaneira em autoridade que importadores encontram antes de ligar para o concorrente.",
-    "primaryCta": "Solicitar diagnóstico enterprise",
-    "secondaryCta": "Explorar serviços da plataforma",
-    "stats": [
-      { "value": "HTSUS", "label": "Autoridade em busca" },
-      { "value": "CBP", "label": "Linguagem de compliance" },
-      { "value": "EUA", "label": "Foco no mercado de brokers" }
-    ],
-    "dashboardAria": "Superfície animada de comando de inteligência comercial",
-    "dashboard": {
-      "title": "TRADE AUTHORITY ENGINE",
-      "signalMap": "MAPA DE SINAIS AO VIVO",
-      "signals": [
-        "Cluster de autoridade HTSUS",
-        "Corredor de intenção do importador",
-        "Velocidade de tópicos de compliance"
-      ],
-      "marketLabel": "Mercado",
-      "marketValue": "Importadores dos EUA",
-      "partnerLabel": "Camada parceira",
-      "partnerValue": "Strategic Trade Intelligence Partner"
-    }
+    "copy": "A agência de marketing com DNA de comércio exterior. Você mantém as cadeias globais de suprimento em movimento. Nós garantimos que o mercado enxergue isso.",
+    "primaryCta": "Colocar minha marca no radar",
+    "secondaryCta": "Conhecer o Método Radar",
+    "marquee": ["Identidade", "Cliente", "Presença", "Reputação", "Visão Global", "Estratégia", "Confiança", "Movimento"]
   },
-  "Services": {
-    "eyebrow": "Serviços",
-    "title": "Você domina o comércio regulado. Nós fazemos o mercado enxergar isso.",
-    "copy": "Despachantes aduaneiros, freight forwarders e NVOCCs perdem negócios não por falta de competência técnica — mas porque o mercado não consegue enxergar essa competência. A 3C Waypoint constrói a infraestrutura que muda isso.",
+  "Problem": {
+    "eyebrow": "O Problema",
+    "title": "O comércio exterior tem produto. Falta marca.",
     "items": [
       {
-        "title": "Infraestrutura de Autoridade em Busca",
-        "description": "Programas técnicos de SEO para HTSUS, UFLPA, ISF, AD/CVD, drawback, FTZ e páginas de aquisição específicas para brokers. Construímos o conteúdo que seus compradores encontram quando buscam respostas de compliance.",
-        "signal": "01"
+        "number": "01",
+        "title": "Invisibilidade digital",
+        "description": "Empresas excelentes de comércio exterior que ninguém encontra no Google. Sem presença social, sem autoridade online — invisíveis para os importadores que estão ativamente procurando por você."
       },
       {
-        "title": "Posicionamento de Demanda de Importadores",
-        "description": "Narrativas de mercado, landing pages e sinais locais construídos para importadores que avaliam despachantes aduaneiros e parceiros de forwarding. Sua empresa posicionada onde a decisão começa.",
-        "signal": "02"
+        "number": "02",
+        "title": "Mensagem genérica",
+        "description": "Marketing que não fala a língua da indústria. Copy sem nenhum contexto técnico, que não convence nenhum importador, nenhum embarcador, nenhum tomador de decisão."
       },
       {
-        "title": "Sistemas de Credibilidade Executiva",
-        "description": "Programas de LinkedIn, liderança técnica e operações de conteúdo que tornam a expertise regulatória visível antes do início da compra. Falamos comex com fluência nativa.",
-        "signal": "03"
-      },
-      {
-        "title": "Diagnósticos de Conversão",
-        "description": "Auditorias de site, SERP e mensagem que identificam onde a intenção qualificada de importadores está escapando do seu pipeline. Diagnóstico de preço fixo, com prazo definido e acionável.",
-        "signal": "04"
+        "number": "03",
+        "title": "Dependência de indicação",
+        "description": "O crescimento trava porque todo o pipeline vem de indicações. Sem sistema, sem previsibilidade, sem escala."
       }
     ]
   },
-  "Authority": {
-    "eyebrow": "Autoridade Técnica",
-    "title": "Posicionamento que respeita a complexidade do comércio dos EUA.",
-    "copy": "Compradores de serviços de customs brokerage não respondem a linguagem genérica de marketing. Eles avaliam precisão, leitura de risco, competência jurisdicional e clareza para explicar movimentação regulada.",
-    "points": [
-      "Importadores que buscam compliance encontram você primeiro — não o concorrente.",
-      "Seu pipeline começa a chegar pré-qualificado, sem o ciclo de educação que consome o tempo do seu time comercial.",
-      "Sua autoridade técnica sustenta renovações, referências e expansão para novos segmentos regulados.",
-      "Você para de competir por preço porque o mercado já enxerga a profundidade da sua operação."
+  "Brand": {
+    "eyebrow": "A Marca",
+    "title": "Uma agência construída dentro do universo do comércio exterior.",
+    "paragraphs": [
+      "A 3C WayPoint é a agência de marketing especializada em comércio exterior. Fundada por Sari, estrategista com 10 anos de indústria, com um time completo treinado para falar a língua do comex — não uma agência generalista tentando adivinhar o seu mundo.",
+      "Aqui, diagnóstico vem antes da execução. O Método Radar — nosso framework proprietário — garante que todo projeto comece pelo que importa: identidade, cliente, presença e reputação.",
+      "Não somos uma agência que aprendeu comex. Somos gente de comex que dominou marketing. Essa inversão muda tudo."
     ],
-    "metrics": [
-      { "value": "+90 dias", "label": "Para autoridade de busca estabelecida no seu nicho regulatório" },
-      { "value": "1 vertical", "label": "O único mercado que servimos: comércio exterior nos EUA" },
-      { "value": "0 genérico", "label": "Nenhuma campanha nossa poderia pertencer a outra indústria" }
+    "highlight": "A única agência que fala de NCM, Siscomex e storytelling na mesma frase.",
+    "stats": [
+      { "value": "10 anos", "label": "Em comércio exterior" },
+      { "value": "Todos os segmentos", "label": "Despachantes, agentes de carga, trading, trade-tech, consultores" },
+      { "value": "100%", "label": "Focado em comércio exterior" }
     ]
   },
-  "TradeIntelligence": {
-    "eyebrow": "Inteligência Comercial",
-    "title": "Estratégia orientada pela forma como importadores pesquisam, comparam e reduzem riscos.",
-    "copy": "A 3C Waypoint conecta tópicos técnicos de comércio à descoberta comercial: as perguntas que importadores pesquisam, as páginas de compliance em que confiam e os sinais de prova necessários antes do contato.",
-    "panelTitle": "Camada de inteligência",
-    "partner": "Strategic Trade Intelligence Partner",
-    "signals": [
-      "Quais termos de compliance seu importador-alvo pesquisa no momento da dúvida",
-      "O que diferencia um importador pronto para contratar de um que ainda está comparando preços",
-      "Quais páginas de regulação americana constroem confiança antes do primeiro contato comercial",
-      "Como brokers líderes se posicionam para capturar demanda antes da concorrência enxergar a oportunidade"
-    ]
-  },
-  "RadarTheory": {
-    "eyebrow": "METODOLOGIA",
-    "title": "A Teoria do Radar™: nosso framework estratégico para marcas de comércio regulado.",
-    "copy": "Um radar aduaneiro detecta, rastreia e prioriza cargas antes de chegarem à fronteira. Um radar de marca faz o mesmo com oportunidades comerciais, detectando o sinal do comprador antes que o concorrente o faça. Quatro quadrantes: DETECTAR · CALIBRAR · POSICIONAR · RESPONDER.",
+  "RadarMethod": {
+    "eyebrow": "O Método",
+    "title": "O Método Radar",
+    "copy": "Um diagnóstico estruturado em 4 pilares que traz ordem ao marketing de qualquer empresa de comex. Todo projeto começa pelo diagnóstico: Identidade antes de Presença, Cliente antes de Reputação.",
     "quadrants": [
+      { "label": "Identidade", "description": "Quem é a sua empresa?" },
+      { "label": "Cliente", "description": "Com quem você precisa falar?" },
+      { "label": "Presença", "description": "Em quais canais você precisa estar?" },
+      { "label": "Reputação", "description": "O que o mercado fala sobre você?" }
+    ]
+  },
+  "PillarsPractice": {
+    "eyebrow": "Na Prática",
+    "title": "Do diagnóstico à execução.",
+    "copy": "Cada pilar do Método Radar vira entregáveis concretos.",
+    "items": [
       {
-        "label": "DETECTAR",
-        "description": "Identificamos onde importadores buscam o que você oferece — antes que eles saibam que você existe."
+        "signal": "01",
+        "title": "Identidade — Quem é a sua empresa, de verdade?",
+        "description": "Antes de se apresentar ao mundo, você precisa saber quem é. Definimos a essência, o posicionamento e a narrativa que diferenciam sua empresa no comex.",
+        "bullets": [
+          "Diagnóstico de marca e posicionamento",
+          "Identidade visual completa",
+          "Narrativa institucional e mensagens-chave",
+          "Apresentações comerciais estratégicas"
+        ]
       },
       {
-        "label": "CALIBRAR",
-        "description": "Ajustamos sua mensagem para o momento exato da decisão do comprador regulado."
+        "signal": "02",
+        "title": "Cliente — Com quem sua marca precisa falar?",
+        "description": "Não existe marketing eficiente sem clareza sobre o cliente ideal. Mapeamos seu ICP, estruturamos seu CRM e construímos os funis que geram leads qualificados no comex.",
+        "bullets": [
+          "Mapeamento e definição de ICP",
+          "Configuração de CRM para o fluxo do comex",
+          "Estratégia e automação de funil",
+          "Consultoria de captação e qualificação de leads"
+        ]
       },
       {
-        "label": "POSICIONAR",
-        "description": "Construímos a presença que faz sua empresa ser a resposta certa — não uma das opções."
+        "signal": "03",
+        "title": "Presença — Em quais canais sua marca precisa estar?",
+        "description": "Presença não é estar em todo lugar. É estar nos canais certos, com a mensagem certa, para o público certo. Construímos a presença digital que gera autoridade e atrai demanda.",
+        "bullets": [
+          "Gestão de redes sociais com conteúdo técnico do setor",
+          "Copywriting e conteúdo institucional",
+          "Desenvolvimento de site com SEO",
+          "Tráfego pago e inbound marketing"
+        ]
       },
       {
-        "label": "RESPONDER",
-        "description": "Executamos conteúdo e campanhas calibrados para o ciclo de compra de 90 a 180 dias do comex."
+        "signal": "04",
+        "title": "Reputação — O que falam sobre sua marca?",
+        "description": "Reputação é o que acontece quando você não está na sala. Construímos autoridade com vídeo, relações com a mídia e presença real nos eventos do setor.",
+        "bullets": [
+          "Filmes e documentários de marca",
+          "Produção de podcast de alto padrão",
+          "Cobertura de feiras e eventos do setor",
+          "Assessoria de imprensa e relações com a mídia"
+        ]
+      }
+    ]
+  },
+  "Personas": {
+    "eyebrow": "Para Quem É",
+    "title": "Feito para quem faz o comércio exterior acontecer.",
+    "painLabel": "A DOR",
+    "goalLabel": "O OBJETIVO",
+    "pillarsLabel": "PILARES ENVOLVIDOS",
+    "items": [
+      {
+        "number": "01",
+        "name": "Agente de Carga",
+        "role": "Agente de Carga / NVOCC",
+        "hook": "Todo agente de carga vende frete. Você precisa vender confiança.",
+        "pain": "Você não consegue se diferenciar além do preço, então perde clientes para concorrentes mais baratos — porque nunca construiu autoridade de marca.",
+        "goal": "Gerar leads qualificados que te escolhem pelo valor, não pela cotação mais barata.",
+        "pillars": "Identidade · Cliente · Presença"
+      },
+      {
+        "number": "02",
+        "name": "Despachante Aduaneiro",
+        "role": "Despachante Aduaneiro",
+        "hook": "O melhor despachante da praça pode ser invisível no Google.",
+        "pain": "Você vive só de indicação. Sem presença digital, você é invisível para novos clientes e não consegue escalar.",
+        "goal": "Construir autoridade digital e um pipeline constante de leads — independente de quem te indica.",
+        "pillars": "Identidade · Presença · Reputação"
+      },
+      {
+        "number": "03",
+        "name": "Trading e Sourcing",
+        "role": "Importação / Exportação · Sourcing",
+        "hook": "Ninguém entende o que você realmente faz. E isso está custando negócios.",
+        "pain": "Clientes confundem uma trading com um importador comum. Sua proposta de valor é complexa e sua comunicação nunca explica o modelo.",
+        "goal": "Posicionamento claro do modelo de negócio e atração de parceiros e compradores qualificados.",
+        "pillars": "Identidade · Cliente · Presença"
+      },
+      {
+        "number": "04",
+        "name": "Trade Tech",
+        "role": "Software · Plataformas SaaS para Comex",
+        "hook": "Produto ótimo. Mensagem que assusta quem assina o cheque.",
+        "pain": "Sua comunicação é técnica demais para gestores e financeiro. O marketing não traduz o valor para quem aprova o orçamento.",
+        "goal": "Um pipeline B2B qualificado e uma mensagem que fala com quem decide, não só com quem analisa.",
+        "pillars": "Cliente · Identidade · Presença"
+      },
+      {
+        "number": "05",
+        "name": "Consultor de Comex",
+        "role": "Consultores e Assessores de Comércio Exterior",
+        "hook": "Você tem 15 anos de comex. E seus clientes ainda pedem desconto?",
+        "pain": "Você cobra abaixo do valor porque não se posiciona como especialista premium. O conhecimento existe; a autoridade percebida, não.",
+        "goal": "Posicionamento premium, projetos de ticket mais alto e autoridade real no setor.",
+        "pillars": "Identidade · Reputação · Presença"
+      }
+    ],
+    "closing": {
+      "title": "Sua empresa está aqui?",
+      "copy": "Se você faz o comércio exterior acontecer nos bastidores, sabemos como te colocar no radar do mercado.",
+      "button": "Falar com um especialista"
+    }
+  },
+  "WhyUs": {
+    "eyebrow": "Por Que a 3C Waypoint",
+    "title": "O que mais ninguém tem.",
+    "copy": "Três coisas que você não encontra em nenhuma outra agência de marketing para comex.",
+    "items": [
+      {
+        "title": "Um DNA de comex de verdade",
+        "description": "A única agência onde o briefing começa com drawback, NCM e Siscomex. Nossa mensagem fala a língua do seu cliente porque nasceu dentro do setor — não foi aplicada de fora para dentro."
+      },
+      {
+        "title": "Um time completo e experiente",
+        "description": "Um time completo com experiência real em conteúdo e marketing para comércio exterior. Estrutura de agência, entrega de especialista, gente que realmente fala a língua do comex."
+      },
+      {
+        "title": "O Método Radar, nosso framework exclusivo",
+        "description": "Um framework proprietário com 4 pilares. Diagnóstico estruturado antes de qualquer execução. Não é achismo — é um método que já transformou marcas no comex."
       }
     ]
   },
   "CTA": {
-    "eyebrow": "Diagnóstico Enterprise",
-    "title": "Encontre as lacunas de autoridade entre sua expertise comercial e seu próximo importador.",
-    "copy": "Solicite uma revisão focada em visibilidade de busca, posicionamento em temas regulados, arquitetura de páginas e sinais de credibilidade para compradores.",
-    "button": "Agendar conversa estratégica",
-    "email": "mailto:info@3cmediamktg.com"
+    "eyebrow": "Vamos Conversar",
+    "title": "Marketing para quem movimenta o mundo.",
+    "copy": "Coloque sua marca de comex no radar do mercado.",
+    "button": "Agendar conversa"
   },
   "Contact": {
-    "eyebrow": "Diagnóstico Enterprise",
-    "title": "Inicie a conversa.",
-    "copy": "Conte-nos sobre sua operação de compliance aduaneiro. Mapeamos as lacunas de autoridade e mostramos exatamente onde importadores não estão te encontrando.",
+    "eyebrow": "Fale Com a Gente",
+    "title": "Vamos te colocar no radar.",
+    "copy": "Conte pra gente sobre sua empresa. Vamos te mostrar exatamente onde o mercado ainda não está te enxergando.",
     "form": {
       "name": "Nome",
       "namePlaceholder": "Seu nome",
@@ -159,12 +237,22 @@
     },
     "success": {
       "title": "Mensagem enviada.",
-      "copy": "Analisaremos seu desafio e responderemos em até um dia útil."
+      "copy": "Vamos analisar seu desafio e responder em até um dia útil."
     },
-    "error": "Algo deu errado. Por favor, tente novamente."
+    "error": "Algo deu errado. Tente novamente."
   },
   "Footer": {
-    "copy": "Infraestrutura premium de marketing B2B para despachantes aduaneiros, freight forwarders, NVOCCs e empresas de compliance comercial dos EUA.",
-    "partner": "O radar que detecta seu próximo importador antes do seu concorrente."
+    "tagline": "Marketing para quem movimenta o mundo.",
+    "social": {
+      "websiteLabel": "Website",
+      "website": "3cwaypoint.com",
+      "instagramLabel": "Instagram",
+      "instagram": "@3cwaypoint",
+      "linkedinLabel": "LinkedIn",
+      "linkedin": "in/3cwaypoint",
+      "emailLabel": "E-mail",
+      "email": "hello@3cwaypoint.com"
+    },
+    "copyright": "3C WayPoint. Marketing para Comércio Exterior. Todos os direitos reservados."
   }
 }

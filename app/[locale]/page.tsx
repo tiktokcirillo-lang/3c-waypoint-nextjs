@@ -1,12 +1,14 @@
 import { setRequestLocale } from "next-intl/server";
 import { OrganizationJsonLd } from "../../components/JsonLd";
-import Authority from "../../components/Authority";
 import Hero from '@/components/hero';
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
-import Services from "../../components/Services";
-import TradeIntelligence from "../../components/TradeIntelligence";
-import RadarTheory from "../../components/RadarTheory";
+import Problem from "../../components/Problem";
+import Brand from "../../components/Brand";
+import RadarMethod from "../../components/RadarMethod";
+import PillarsPractice from "../../components/PillarsPractice";
+import Personas from "../../components/Personas";
+import WhyUs from "../../components/WhyUs";
 import CTA from "../../components/CTA";
 
 type Props = {
@@ -23,10 +25,12 @@ export default async function HomePage({ params }: Props) {
       <Navbar />
       <main className="overflow-hidden">
         <Hero />
-        <Services />
-        <Authority />
-        <TradeIntelligence />
-        <RadarTheory />
+        <Problem />
+        <Brand />
+        <RadarMethod />
+        <PillarsPractice />
+        <Personas />
+        <WhyUs />
         <CTA />
       </main>
       <Footer />

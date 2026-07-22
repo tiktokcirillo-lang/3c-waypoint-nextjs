@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
-type Metric = {
+type Stat = {
   value: string;
   label: string;
 };
@@ -13,20 +13,18 @@ const fadeUp = {
   visible: { opacity: 1, y: 0 },
 };
 
-export default function Authority() {
-  const t = useTranslations("Authority");
-  const authorityPoints = t.raw("points") as string[];
-  const metrics = t.raw("metrics") as Metric[];
+export default function Brand() {
+  const t = useTranslations("Brand");
+  const paragraphs = t.raw("paragraphs") as string[];
+  const stats = t.raw("stats") as Stat[];
 
   return (
     <>
-      {/* Authority two-column section */}
       <section
-        id="authority"
+        id="about"
         className="relative overflow-hidden px-5 py-24 sm:px-8 lg:px-10"
         style={{ background: '#0A0F14' }}
       >
-        {/* Faded watermark */}
         <div
           className="pointer-events-none absolute inset-0 flex items-center justify-center select-none overflow-hidden"
           aria-hidden="true"
@@ -43,12 +41,11 @@ export default function Authority() {
               whiteSpace: 'nowrap',
             }}
           >
-            AUTHORITY
+            3C WAYPOINT
           </span>
         </div>
 
-        <div className="relative mx-auto max-w-7xl grid gap-16 lg:grid-cols-2 lg:items-start">
-          {/* Left column */}
+        <div className="relative mx-auto max-w-4xl">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -56,6 +53,7 @@ export default function Authority() {
             variants={fadeUp}
             transition={{ duration: 0.6 }}
           >
+            <div style={{ height: '1px', width: '48px', background: '#D7B56D', marginBottom: '20px' }} />
             <span
               className="block text-[11px] font-semibold uppercase text-[#1A5F7A]"
               style={{ letterSpacing: '0.2em', fontFamily: 'var(--font-inter)' }}
@@ -68,52 +66,49 @@ export default function Authority() {
             >
               {t("title")}
             </h2>
-            <p
-              className="mt-5 text-base leading-relaxed"
-              style={{ color: 'rgba(244,247,248,0.55)', fontFamily: 'var(--font-inter)' }}
-            >
-              {t("copy")}
-            </p>
           </motion.div>
 
-          {/* Right column — stacked numbered list */}
-          <div>
-            {authorityPoints.map((point, index) => (
-              <motion.div
+          <div className="mt-10 flex flex-col gap-6">
+            {paragraphs.map((p, index) => (
+              <motion.p
                 key={index}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeUp}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex gap-6 py-6"
-                style={{
-                  borderBottom:
-                    index < authorityPoints.length - 1
-                      ? '1px solid rgba(255,255,255,0.06)'
-                      : 'none',
-                  borderTop: index === 0 ? '1px solid rgba(255,255,255,0.06)' : 'none',
-                }}
+                className="text-base leading-relaxed"
+                style={{ color: 'rgba(244,247,248,0.7)', fontFamily: 'var(--font-inter)' }}
               >
-                <span
-                  className="shrink-0 text-base font-medium"
-                  style={{ color: '#7ECECA', fontFamily: 'var(--font-mono)', minWidth: '2rem' }}
-                >
-                  0{index + 1}
-                </span>
-                <p
-                  className="text-base leading-relaxed"
-                  style={{ color: 'rgba(244,247,248,0.8)', fontFamily: 'var(--font-inter)' }}
-                >
-                  {point}
-                </p>
-              </motion.div>
+                {p}
+              </motion.p>
             ))}
           </div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="mt-10 relative rounded-lg"
+            style={{
+              background: '#111820',
+              border: '1px solid rgba(215,181,109,0.25)',
+              padding: '28px 32px',
+            }}
+          >
+            <div style={{ height: '2px', width: '40px', background: '#D7B56D', marginBottom: '16px' }} />
+            <p
+              className="text-lg leading-relaxed italic"
+              style={{ color: '#F4F7F8', fontFamily: 'var(--font-barlow)' }}
+            >
+              {t("highlight")}
+            </p>
+          </motion.div>
         </div>
       </section>
 
-      {/* Stats row */}
       <section className="px-5 sm:px-8 lg:px-10" style={{ background: '#0E151A' }}>
         <div className="mx-auto max-w-7xl">
           <motion.div
@@ -124,18 +119,17 @@ export default function Authority() {
             transition={{ duration: 0.6 }}
             className="flex flex-col md:flex-row"
           >
-            {metrics.map((metric, i) => (
+            {stats.map((stat, i) => (
               <div
-                key={metric.label}
-                className="relative flex flex-1 flex-col items-center justify-center py-16 px-8"
+                key={stat.label}
+                className="relative flex flex-1 flex-col items-center justify-center py-16 px-8 text-center"
                 style={{
                   borderRight:
-                    i < metrics.length - 1
+                    i < stats.length - 1
                       ? '1px solid rgba(255,255,255,0.08)'
                       : 'none',
                 }}
               >
-                {/* Teal glow behind number */}
                 <div
                   className="pointer-events-none absolute inset-0"
                   style={{
@@ -147,12 +141,12 @@ export default function Authority() {
                   className="relative leading-none"
                   style={{
                     fontFamily: 'var(--font-barlow)',
-                    fontSize: '80px',
+                    fontSize: '56px',
                     fontWeight: 800,
                     color: '#7ECECA',
                   }}
                 >
-                  {metric.value}
+                  {stat.value}
                 </span>
                 <span
                   className="relative mt-3 text-xs font-semibold uppercase tracking-widest"
@@ -162,7 +156,7 @@ export default function Authority() {
                     letterSpacing: '0.15em',
                   }}
                 >
-                  {metric.label}
+                  {stat.label}
                 </span>
               </div>
             ))}

@@ -128,7 +128,7 @@ export default function HeroText() {
             </a>
 
             <a
-              href="#services"
+              href="#method"
               className="
                 font-['Inter'] text-[11px] tracking-[0.22em] uppercase
                 text-white/35 hover:text-white/65
@@ -156,26 +156,6 @@ export default function HeroText() {
               transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut', repeatDelay: 0.4 }}
             />
           </div>
-        </motion.div>
-
-        {/* ── Stats — bottom right ── */}
-        <motion.div
-          custom={2}
-          variants={FADE_UP}
-          initial="hidden"
-          animate="visible"
-          className="absolute bottom-10 right-8 md:right-16 lg:right-20 xl:right-24 hidden lg:flex flex-col gap-2 items-end"
-        >
-          {(t.raw('stats') as { value: string; label: string }[]).map((s) => (
-            <div key={s.value} className="flex items-baseline gap-2">
-              <span className="font-['Barlow_Condensed'] text-2xl font-bold text-[#7ECECA] leading-none">
-                {s.value}
-              </span>
-              <span className="font-['Inter'] text-[10px] tracking-[0.15em] uppercase text-white/30">
-                {s.label}
-              </span>
-            </div>
-          ))}
         </motion.div>
 
       </div>
