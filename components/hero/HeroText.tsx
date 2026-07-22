@@ -79,19 +79,17 @@ export default function HeroText() {
           </span>
         </motion.div>
 
-        {/* ── Headline — tracking apertado no lugar de força bruta no font-size ── */}
+        {/* ── Headline — 2 linhas combinadas, mesmo font-size, ocupando a largura real ── */}
         <div className="flex flex-col gap-[0.06em] mb-6 md:mb-9">
-          <MaskedLine index={0} className="font-['Barlow_Condensed'] text-[clamp(3.5rem,10vw,9rem)] font-black uppercase tracking-[-0.045em] text-white">
-            {t('headline.line1')}
+          <MaskedLine index={0} className="font-['Barlow_Condensed'] text-[clamp(3.5rem,10vw,9rem)] font-black uppercase tracking-[-0.045em]">
+            <span className="text-white">{t('headline.line1')}</span>{' '}
+            <span className="text-[#7ECECA]">{t('headline.line2')}</span>
           </MaskedLine>
-          <MaskedLine index={1} className="font-['Barlow_Condensed'] text-[clamp(3.5rem,10vw,9rem)] font-black uppercase tracking-[-0.045em] text-[#7ECECA]">
-            {t('headline.line2')}
-          </MaskedLine>
-          <MaskedLine index={2} className="font-['Barlow_Condensed'] text-[clamp(3.5rem,10vw,9rem)] font-black uppercase tracking-[-0.045em] text-white">
-            {t('headline.line3')}
-          </MaskedLine>
-          <MaskedLine index={3} className="font-['Barlow_Condensed'] text-[clamp(3.5rem,10vw,9rem)] font-black uppercase tracking-[-0.045em] text-white/30">
-            {t('headline.line4')}
+          <MaskedLine index={1} className="font-['Barlow_Condensed'] text-[clamp(3.5rem,10vw,9rem)] font-black uppercase tracking-[-0.045em]">
+            <span className="text-white">{t('headline.line3')}</span>{' '}
+            <span className="font-serif italic font-normal tracking-normal text-[#7ECECA]">
+              {t('headline.line4')}
+            </span>
           </MaskedLine>
         </div>
 
