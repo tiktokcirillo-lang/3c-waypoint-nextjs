@@ -80,17 +80,17 @@ export default function HeroText() {
         </motion.div>
 
         {/* ── Headline ── */}
-        <div className="flex flex-col gap-[0.06em] mb-10 md:mb-14 origin-left scale-x-125">
-          <MaskedLine index={0} className="font-['Barlow_Condensed'] text-[clamp(2.4rem,7.5vh,6rem)] font-black uppercase tracking-[-0.025em] text-white">
+        <div className="flex flex-col gap-[0.06em] mb-6 md:mb-9">
+          <MaskedLine index={0} className="font-['Barlow_Condensed'] text-[clamp(3rem,11vh,9rem)] font-black uppercase tracking-[-0.025em] text-white">
             {t('headline.line1')}
           </MaskedLine>
-          <MaskedLine index={1} className="font-['Barlow_Condensed'] text-[clamp(2.4rem,7.5vh,6rem)] font-black uppercase tracking-[-0.025em] text-[#7ECECA]">
+          <MaskedLine index={1} className="font-['Barlow_Condensed'] text-[clamp(3rem,11vh,9rem)] font-black uppercase tracking-[-0.025em] text-[#7ECECA]">
             {t('headline.line2')}
           </MaskedLine>
-          <MaskedLine index={2} className="font-['Barlow_Condensed'] text-[clamp(2.4rem,7.5vh,6rem)] font-black uppercase tracking-[-0.025em] text-white">
+          <MaskedLine index={2} className="font-['Barlow_Condensed'] text-[clamp(3rem,11vh,9rem)] font-black uppercase tracking-[-0.025em] text-white">
             {t('headline.line3')}
           </MaskedLine>
-          <MaskedLine index={3} className="font-['Barlow_Condensed'] text-[clamp(2.4rem,7.5vh,6rem)] font-black uppercase tracking-[-0.025em] text-white/30">
+          <MaskedLine index={3} className="font-['Barlow_Condensed'] text-[clamp(3rem,11vh,9rem)] font-black uppercase tracking-[-0.025em] text-white/30">
             {t('headline.line4')}
           </MaskedLine>
         </div>
